@@ -1,0 +1,9 @@
+{
+  "name": "sudc-system",
+  "namespace": "sudc-system",
+  "id": "f22681a9-4c24-46a5-8bb1-1b64a641ba9b",
+  "containerDefinitions": [],
+  "topology": {
+    "containers": {}
+  }
+}
