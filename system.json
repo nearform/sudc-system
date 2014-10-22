@@ -9,6 +9,52 @@
       "name": "root"
     },
     {
+      "type": "aws-elb",
+      "specific": {
+        "protocol": "HTTP",
+        "loadBalancerPort": 80,
+        "instanceProtocol": "HTTP",
+        "instancePort": 8000
+      },
+      "id": "webElb",
+      "name": "webElb"
+    },
+    {
+      "type": "aws-sg",
+      "specific": {
+        "ingress": [
+          {
+            "ipProtocol": "tcp",
+            "fromPort": 22,
+            "toPort": 22,
+            "ipRanges": [
+              {
+                "cidrIp": "0.0.0.0/0"
+              }
+            ]
+          },
+          {
+            "ipProtocol": "tcp",
+            "fromPort": 3000,
+            "toPort": 3000,
+            "ipRanges": [
+              {
+                "cidrIp": "0.0.0.0/0"
+              }
+            ]
+          }
+        ],
+        "egress": []
+      },
+      "id": "webSg",
+      "name": "webSg"
+    },
+    {
+      "type": "aws-ami",
+      "id": "machine",
+      "name": "machine"
+    },
+    {
       "type": "docker",
       "specific": {
         "repositoryUrl": "git@github.com:nearform/sudc-doc.git",
@@ -75,46 +121,40 @@
   ],
   "topology": {
     "containers": {
-      "root-16f4f95b": {
-        "id": "root-16f4f95b",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "root",
-        "type": "blank-container",
+      "webElb-7bbd309b": {
+        "id": "webElb-7bbd309b",
+        "containedBy": "webElb-7bbd309b",
+        "containerDefinitionId": "webElb",
+        "type": "aws-elb",
         "contains": [
-          "doc-c31f912e",
-          "hist-b418a1b8",
-          "real-2d11f002",
-          "web-5a16c094"
+          "webSg-af30ca23"
         ],
         "specific": {}
       },
-      "doc-c31f912e": {
-        "id": "doc-c31f912e",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "doc",
-        "type": "docker",
-        "contains": [],
+      "webSg-af30ca23": {
+        "id": "webSg-af30ca23",
+        "containedBy": "webElb-7bbd309b",
+        "containerDefinitionId": "webSg",
+        "type": "aws-sg",
+        "contains": [
+          "machine-3c7fde6",
+          "machine-14bce9a5"
+        ],
         "specific": {}
       },
-      "hist-b418a1b8": {
-        "id": "hist-b418a1b8",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "hist",
-        "type": "docker",
-        "contains": [],
+      "machine-3c7fde6": {
+        "id": "machine-3c7fde6",
+        "containedBy": "webSg-af30ca23",
+        "containerDefinitionId": "machine",
+        "type": "aws-ami",
+        "contains": [
+          "web-951990f1"
+        ],
         "specific": {}
       },
-      "real-2d11f002": {
-        "id": "real-2d11f002",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "real",
-        "type": "docker",
-        "contains": [],
-        "specific": {}
-      },
-      "web-5a16c094": {
-        "id": "web-5a16c094",
-        "containedBy": "root-16f4f95b",
+      "web-951990f1": {
+        "id": "web-951990f1",
+        "containedBy": "machine-3c7fde6",
         "containerDefinitionId": "web",
         "type": "docker",
         "contains": [],
@@ -125,6 +165,39 @@
           "buildNumber": 1,
           "version": "0.0.0"
         }
+      },
+      "machine-14bce9a5": {
+        "id": "machine-14bce9a5",
+        "containedBy": "webSg-af30ca23",
+        "containerDefinitionId": "machine",
+        "type": "aws-ami",
+        "contains": [
+          "docsrv-54974f31",
+          "histsrv-23907fa7",
+          "realsrv-ba992e1d"
+        ],
+        "specific": {}
+      },
+      "docsrv-54974f31": {
+        "id": "docsrv-54974f31",
+        "containedBy": "machine-14bce9a5",
+        "containerDefinitionId": "docsrv",
+        "contains": [],
+        "specific": {}
+      },
+      "histsrv-23907fa7": {
+        "id": "histsrv-23907fa7",
+        "containedBy": "machine-14bce9a5",
+        "containerDefinitionId": "histsrv",
+        "contains": [],
+        "specific": {}
+      },
+      "realsrv-ba992e1d": {
+        "id": "realsrv-ba992e1d",
+        "containedBy": "machine-14bce9a5",
+        "containerDefinitionId": "realsrv",
+        "contains": [],
+        "specific": {}
       }
     }
   }
