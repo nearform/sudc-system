@@ -9,6 +9,52 @@
       "name": "root"
     },
     {
+      "type": "aws-elb",
+      "specific": {
+        "protocol": "HTTP",
+        "loadBalancerPort": 80,
+        "instanceProtocol": "HTTP",
+        "instancePort": 8000
+      },
+      "id": "webElb",
+      "name": "webElb"
+    },
+    {
+      "type": "aws-sg",
+      "specific": {
+        "ingress": [
+          {
+            "ipProtocol": "tcp",
+            "fromPort": 22,
+            "toPort": 22,
+            "ipRanges": [
+              {
+                "cidrIp": "0.0.0.0/0"
+              }
+            ]
+          },
+          {
+            "ipProtocol": "tcp",
+            "fromPort": 3000,
+            "toPort": 3000,
+            "ipRanges": [
+              {
+                "cidrIp": "0.0.0.0/0"
+              }
+            ]
+          }
+        ],
+        "egress": []
+      },
+      "id": "webSg",
+      "name": "webSg"
+    },
+    {
+      "type": "aws-ami",
+      "id": "machine",
+      "name": "machine"
+    },
+    {
       "type": "docker",
       "specific": {
         "repositoryUrl": "git@github.com:nearform/sudc-doc.git",
@@ -22,8 +68,7 @@
         "dockerImageId": "19279ac8130e9148bce4ac406e59eec215fa0cee5d4aa88299510c51c7f3269c"
       },
       "id": "doc",
-      "name": "doc",
-      "version": "0.0.0"
+      "name": "doc"
     },
     {
       "type": "docker",
@@ -39,8 +84,7 @@
         "dockerImageId": "ffd8a6a135bdf9f8b3f783be61f1b29f54391af9e53295aa194a21abfc29c419"
       },
       "id": "hist",
-      "name": "hist",
-      "version": "0.0.0"
+      "name": "hist"
     },
     {
       "type": "docker",
@@ -56,8 +100,7 @@
         "dockerImageId": "3d8943bbd715b253d288d3da06fa98cc1d2582fa9064fbd63455c7aa31f71472"
       },
       "id": "real",
-      "name": "real",
-      "version": "0.0.0"
+      "name": "real"
     },
     {
       "type": "docker",
@@ -73,70 +116,45 @@
         "dockerImageId": "493cd7b5579ee54dbfa5a50364add2d0b11532c0a1ab7870f23b2d10e967f2b0"
       },
       "id": "web",
-      "name": "web",
-      "version": "0.0.0"
+      "name": "web"
     }
   ],
   "topology": {
     "containers": {
-      "root-16f4f95b": {
-        "id": "root-16f4f95b",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "root",
-        "type": "blank-container",
+      "webElb-7bbd309b": {
+        "id": "webElb-7bbd309b",
+        "containedBy": "webElb-7bbd309b",
+        "containerDefinitionId": "webElb",
+        "type": "aws-elb",
         "contains": [
-          "493bd1fb-871c-4ec0-a796-871c173f7211",
-          "2a162b04-f176-48bf-bfa1-d1039b76d0c5",
-          "5acdd38e-03d3-4ec0-abd0-cbebb0fa6daa",
-          "fe197c07-d04b-4678-8749-d605e744fa83"
+          "webSg-af30ca23"
         ],
         "specific": {}
       },
-      "493bd1fb-871c-4ec0-a796-871c173f7211": {
-        "id": "493bd1fb-871c-4ec0-a796-871c173f7211",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "doc",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "19279ac8130e9148bce4ac406e59eec215fa0cee5d4aa88299510c51c7f3269c",
-          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/doc-3",
-          "dockerLocalTag": "sudc/doc-3",
-          "buildNumber": 3,
-          "version": "0.0.0"
-        }
+      "webSg-af30ca23": {
+        "id": "webSg-af30ca23",
+        "containedBy": "webElb-7bbd309b",
+        "containerDefinitionId": "webSg",
+        "type": "aws-sg",
+        "contains": [
+          "machine-3c7fde6",
+          "machine-14bce9a5"
+        ],
+        "specific": {}
       },
-      "2a162b04-f176-48bf-bfa1-d1039b76d0c5": {
-        "id": "2a162b04-f176-48bf-bfa1-d1039b76d0c5",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "hist",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "ffd8a6a135bdf9f8b3f783be61f1b29f54391af9e53295aa194a21abfc29c419",
-          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/hist-1",
-          "dockerLocalTag": "sudc/hist-1",
-          "buildNumber": 1,
-          "version": "0.0.0"
-        }
+      "machine-3c7fde6": {
+        "id": "machine-3c7fde6",
+        "containedBy": "webSg-af30ca23",
+        "containerDefinitionId": "machine",
+        "type": "aws-ami",
+        "contains": [
+          "web-951990f1"
+        ],
+        "specific": {}
       },
-      "5acdd38e-03d3-4ec0-abd0-cbebb0fa6daa": {
-        "id": "5acdd38e-03d3-4ec0-abd0-cbebb0fa6daa",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "real",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "3d8943bbd715b253d288d3da06fa98cc1d2582fa9064fbd63455c7aa31f71472",
-          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/real-2",
-          "dockerLocalTag": "sudc/real-2",
-          "buildNumber": 2,
-          "version": "0.0.0"
-        }
-      },
-      "fe197c07-d04b-4678-8749-d605e744fa83": {
-        "id": "fe197c07-d04b-4678-8749-d605e744fa83",
-        "containedBy": "root-16f4f95b",
+      "web-951990f1": {
+        "id": "web-951990f1",
+        "containedBy": "machine-3c7fde6",
         "containerDefinitionId": "web",
         "type": "docker",
         "contains": [],
@@ -147,6 +165,39 @@
           "buildNumber": 1,
           "version": "0.0.0"
         }
+      },
+      "machine-14bce9a5": {
+        "id": "machine-14bce9a5",
+        "containedBy": "webSg-af30ca23",
+        "containerDefinitionId": "machine",
+        "type": "aws-ami",
+        "contains": [
+          "docsrv-54974f31",
+          "histsrv-23907fa7",
+          "realsrv-ba992e1d"
+        ],
+        "specific": {}
+      },
+      "docsrv-54974f31": {
+        "id": "docsrv-54974f31",
+        "containedBy": "machine-14bce9a5",
+        "containerDefinitionId": "docsrv",
+        "contains": [],
+        "specific": {}
+      },
+      "histsrv-23907fa7": {
+        "id": "histsrv-23907fa7",
+        "containedBy": "machine-14bce9a5",
+        "containerDefinitionId": "histsrv",
+        "contains": [],
+        "specific": {}
+      },
+      "realsrv-ba992e1d": {
+        "id": "realsrv-ba992e1d",
+        "containedBy": "machine-14bce9a5",
+        "containerDefinitionId": "realsrv",
+        "contains": [],
+        "specific": {}
       }
     }
   }
