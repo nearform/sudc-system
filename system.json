@@ -65,12 +65,13 @@
           "args": "-p 9002:9002 -d",
           "exec": "/usr/bin/node /srv/doc-srv.js"
         },
-        "buildHead": 6,
-        "binary": "/home/ubuntu/work/sudc-system/builds/doc-5",
-        "dockerImageId": "2ac0780aad8d3c78ad1bbb9fe82b0a0d031fabbcdc90234870f7d5d535ba36da"
+        "buildHead": 7,
+        "binary": "/home/ubuntu/work/sudc-system/builds/doc-6",
+        "dockerImageId": "1a851064660f366558995aa18b93c2e6ea82eefe2bdd1104b9372abdad596f55"
       },
       "id": "doc",
-      "name": "doc"
+      "name": "doc",
+      "version": "0.0.0"
     },
     {
       "type": "docker",
@@ -174,18 +175,10 @@
         "containerDefinitionId": "machine",
         "type": "aws-ami",
         "contains": [
-          "doc-54974f31",
+          "a106f3a6-83f6-47ce-b637-df21a43e9989",
           "hist-23907fa7",
           "real-ba992e1d"
         ],
-        "specific": {}
-      },
-      "doc-54974f31": {
-        "id": "doc-54974f31",
-        "containedBy": "machine-14bce9a5",
-        "containerDefinitionId": "doc",
-        "type": "docker",
-        "contains": [],
         "specific": {}
       },
       "hist-23907fa7": {
@@ -203,6 +196,20 @@
         "type": "docker",
         "contains": [],
         "specific": {}
+      },
+      "a106f3a6-83f6-47ce-b637-df21a43e9989": {
+        "id": "a106f3a6-83f6-47ce-b637-df21a43e9989",
+        "containedBy": "machine-14bce9a5",
+        "containerDefinitionId": "doc",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "1a851064660f366558995aa18b93c2e6ea82eefe2bdd1104b9372abdad596f55",
+          "containerBinary": "/home/ubuntu/work/sudc-system/builds/doc-6",
+          "dockerLocalTag": "sudc/doc-6",
+          "buildNumber": 6,
+          "version": "0.0.0"
+        }
       }
     }
   }
