@@ -17,7 +17,8 @@
         "instancePort": 8000
       },
       "id": "webElb",
-      "name": "webElb"
+      "name": "webElb",
+      "nativeId": "sudc-bal-1117399678.us-west-2.elb.amazonaws.com"
     },
     {
       "type": "aws-sg",
@@ -47,7 +48,8 @@
         "egress": []
       },
       "id": "webSg",
-      "name": "webSg"
+      "name": "webSg",
+      "nativeId": "sg-5bdc573e"
     },
     {
       "type": "aws-ami",
