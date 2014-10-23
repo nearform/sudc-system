@@ -98,12 +98,13 @@
           "args": "-p 9001:9001 -d",
           "exec": "/usr/bin/node /srv/real-srv.js"
         },
-        "buildHead": 4,
-        "binary": "/home/ubuntu/work/sudc-system/builds/real-3",
-        "dockerImageId": "d1892f425d31fdff0cf743016d2173792159ea629a0915d1200ed7362ea59486"
+        "buildHead": 5,
+        "binary": "/home/ubuntu/work/sudc-system/builds/real-4",
+        "dockerImageId": "9ecfdea3a9adc0fae0cfbf289f5edf7d4397f9cb482d3677faf228ed6c211c29"
       },
       "id": "real",
-      "name": "real"
+      "name": "real",
+      "version": "0.0.0"
     },
     {
       "type": "docker",
@@ -177,7 +178,7 @@
         "contains": [
           "a106f3a6-83f6-47ce-b637-df21a43e9989",
           "hist-23907fa7",
-          "real-ba992e1d"
+          "f8fcddfc-9985-4836-815d-64f451d2df7e"
         ],
         "specific": {}
       },
@@ -185,14 +186,6 @@
         "id": "hist-23907fa7",
         "containedBy": "machine-14bce9a5",
         "containerDefinitionId": "hist",
-        "type": "docker",
-        "contains": [],
-        "specific": {}
-      },
-      "real-ba992e1d": {
-        "id": "real-ba992e1d",
-        "containedBy": "machine-14bce9a5",
-        "containerDefinitionId": "real",
         "type": "docker",
         "contains": [],
         "specific": {}
@@ -208,6 +201,20 @@
           "containerBinary": "/home/ubuntu/work/sudc-system/builds/doc-6",
           "dockerLocalTag": "sudc/doc-6",
           "buildNumber": 6,
+          "version": "0.0.0"
+        }
+      },
+      "f8fcddfc-9985-4836-815d-64f451d2df7e": {
+        "id": "f8fcddfc-9985-4836-815d-64f451d2df7e",
+        "containedBy": "machine-14bce9a5",
+        "containerDefinitionId": "real",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "9ecfdea3a9adc0fae0cfbf289f5edf7d4397f9cb482d3677faf228ed6c211c29",
+          "containerBinary": "/home/ubuntu/work/sudc-system/builds/real-4",
+          "dockerLocalTag": "sudc/real-4",
+          "buildNumber": 4,
           "version": "0.0.0"
         }
       }
