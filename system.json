@@ -65,9 +65,9 @@
           "args": "-p 9002:9002 -d",
           "exec": "/usr/bin/node /srv/doc-srv.js"
         },
-        "buildHead": 5,
-        "binary": "/home/ubuntu/work/sudc-system/builds/doc-4",
-        "dockerImageId": "307778f564487b9f1a4507b50920d6a51b3a2a538cac3db6fd841cb7f80c6ae2"
+        "buildHead": 6,
+        "binary": "/home/ubuntu/work/sudc-system/builds/doc-5",
+        "dockerImageId": "2ac0780aad8d3c78ad1bbb9fe82b0a0d031fabbcdc90234870f7d5d535ba36da"
       },
       "id": "doc",
       "name": "doc",
