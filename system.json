@@ -116,12 +116,13 @@
           "args": "-p 8000:8000 -d",
           "exec": "/bin/bash /web/run.sh"
         },
-        "buildHead": 3,
-        "binary": "/home/ubuntu/work/sudc-system/builds/web-2",
-        "dockerImageId": "055b2b3d9dd421c15b83750dced7208d60a411df1d4c919b3892a6d202e05c8a"
+        "buildHead": 4,
+        "binary": "/home/ubuntu/work/sudc-system/builds/web-3",
+        "dockerImageId": "425aa0aedf790c3a34c8a545389c04d9556f31f2dccd9ab53b4af87bc1f10b55"
       },
       "id": "web",
-      "name": "web"
+      "name": "web",
+      "version": "0.0.0"
     }
   ],
   "topology": {
@@ -153,23 +154,9 @@
         "containerDefinitionId": "machine",
         "type": "aws-ami",
         "contains": [
-          "web-951990f1"
+          "9452bb67-bb6b-4414-8e15-2e8a6a751b18"
         ],
         "specific": {}
-      },
-      "web-951990f1": {
-        "id": "web-951990f1",
-        "containedBy": "machine-3c7fde6",
-        "containerDefinitionId": "web",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "055b2b3d9dd421c15b83750dced7208d60a411df1d4c919b3892a6d202e05c8a",
-          "containerBinary": "/home/ubuntu/work/sudc-system/builds/web-2",
-          "dockerLocalTag": "sudc/web-2",
-          "buildNumber": 2,
-          "version": "0.0.0"
-        }
       },
       "machine-14bce9a5": {
         "id": "machine-14bce9a5",
@@ -221,6 +208,20 @@
           "dockerImageId": "155c54fdb350de24d83b42ddb4b56e1d068131a8a945a7471957cebf831dce03",
           "containerBinary": "/home/ubuntu/work/sudc-system/builds/hist-3",
           "dockerLocalTag": "sudc/hist-3",
+          "buildNumber": 3,
+          "version": "0.0.0"
+        }
+      },
+      "9452bb67-bb6b-4414-8e15-2e8a6a751b18": {
+        "id": "9452bb67-bb6b-4414-8e15-2e8a6a751b18",
+        "containedBy": "machine-3c7fde6",
+        "containerDefinitionId": "web",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "425aa0aedf790c3a34c8a545389c04d9556f31f2dccd9ab53b4af87bc1f10b55",
+          "containerBinary": "/home/ubuntu/work/sudc-system/builds/web-3",
+          "dockerLocalTag": "sudc/web-3",
           "buildNumber": 3,
           "version": "0.0.0"
         }
