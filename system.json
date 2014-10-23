@@ -98,12 +98,13 @@
           "args": "-p 9001:9001 -d",
           "exec": "/usr/bin/node /srv/real-srv.js"
         },
-        "buildHead": 3,
-        "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/real-2",
-        "dockerImageId": "3d8943bbd715b253d288d3da06fa98cc1d2582fa9064fbd63455c7aa31f71472"
+        "buildHead": 4,
+        "binary": "/home/ubuntu/work/sudc-system/builds/real-3",
+        "dockerImageId": "d1892f425d31fdff0cf743016d2173792159ea629a0915d1200ed7362ea59486"
       },
       "id": "real",
-      "name": "real"
+      "name": "real",
+      "version": "0.0.0"
     },
     {
       "type": "docker",
