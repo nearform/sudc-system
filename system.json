@@ -21,7 +21,7 @@
       "nativeId": "sudc-bal-1117399678.us-west-2.elb.amazonaws.com"
     },
     {
-      "type": "aws-sg",
+      "type": "blank-container",
       "specific": {
         "ingress": [
           {
@@ -137,7 +137,7 @@
         "id": "webSg-af30ca23",
         "containedBy": "webElb-7bbd309b",
         "containerDefinitionId": "webSg",
-        "type": "aws-sg",
+        "type": "blank-container",
         "contains": [
           "machine-3c7fde6",
           "machine-14bce9a5"
