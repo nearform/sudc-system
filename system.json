@@ -82,12 +82,13 @@
           "args": "-p 9000:9000 -d",
           "exec": "/usr/bin/node /srv/hist-srv.js"
         },
-        "buildHead": 2,
-        "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/hist-1",
-        "dockerImageId": "ffd8a6a135bdf9f8b3f783be61f1b29f54391af9e53295aa194a21abfc29c419"
+        "buildHead": 3,
+        "binary": "/home/ubuntu/work/sudc-system/builds/hist-2",
+        "dockerImageId": "2f175a1f94a353f9ac7a5622503ecb343c6ccab680a4188750ee2c5a33e26f4f"
       },
       "id": "hist",
-      "name": "hist"
+      "name": "hist",
+      "version": "0.0.0"
     },
     {
       "type": "docker",
