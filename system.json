@@ -21,7 +21,7 @@
       "nativeId": "sudc-bal-1117399678.us-west-2.elb.amazonaws.com"
     },
     {
-      "type": "blank-container",
+      "type": "aws-sg",
       "specific": {
         "ingress": [
           {
@@ -70,8 +70,7 @@
         "dockerImageId": "2ac0780aad8d3c78ad1bbb9fe82b0a0d031fabbcdc90234870f7d5d535ba36da"
       },
       "id": "doc",
-      "name": "doc",
-      "version": "0.0.0"
+      "name": "doc"
     },
     {
       "type": "docker",
@@ -87,8 +86,7 @@
         "dockerImageId": "2f175a1f94a353f9ac7a5622503ecb343c6ccab680a4188750ee2c5a33e26f4f"
       },
       "id": "hist",
-      "name": "hist",
-      "version": "0.0.0"
+      "name": "hist"
     },
     {
       "type": "docker",
@@ -104,8 +102,7 @@
         "dockerImageId": "d1892f425d31fdff0cf743016d2173792159ea629a0915d1200ed7362ea59486"
       },
       "id": "real",
-      "name": "real",
-      "version": "0.0.0"
+      "name": "real"
     },
     {
       "type": "docker",
@@ -121,8 +118,7 @@
         "dockerImageId": "055b2b3d9dd421c15b83750dced7208d60a411df1d4c919b3892a6d202e05c8a"
       },
       "id": "web",
-      "name": "web",
-      "version": "0.0.0"
+      "name": "web"
     }
   ],
   "topology": {
@@ -141,7 +137,7 @@
         "id": "webSg-af30ca23",
         "containedBy": "webElb-7bbd309b",
         "containerDefinitionId": "webSg",
-        "type": "blank-container",
+        "type": "aws-sg",
         "contains": [
           "machine-3c7fde6",
           "machine-14bce9a5"
@@ -154,45 +150,12 @@
         "containerDefinitionId": "machine",
         "type": "aws-ami",
         "contains": [
-          "69e1b512-31b7-4eaf-918c-1c7d286fe3bc"
+          "web-951990f1"
         ],
         "specific": {}
       },
-      "machine-14bce9a5": {
-        "id": "machine-14bce9a5",
-        "containedBy": "webSg-af30ca23",
-        "containerDefinitionId": "machine",
-        "type": "aws-ami",
-        "contains": [
-          "docsrv-54974f31",
-          "histsrv-23907fa7",
-          "realsrv-ba992e1d"
-        ],
-        "specific": {}
-      },
-      "docsrv-54974f31": {
-        "id": "docsrv-54974f31",
-        "containedBy": "machine-14bce9a5",
-        "containerDefinitionId": "docsrv",
-        "contains": [],
-        "specific": {}
-      },
-      "histsrv-23907fa7": {
-        "id": "histsrv-23907fa7",
-        "containedBy": "machine-14bce9a5",
-        "containerDefinitionId": "histsrv",
-        "contains": [],
-        "specific": {}
-      },
-      "realsrv-ba992e1d": {
-        "id": "realsrv-ba992e1d",
-        "containedBy": "machine-14bce9a5",
-        "containerDefinitionId": "realsrv",
-        "contains": [],
-        "specific": {}
-      },
-      "69e1b512-31b7-4eaf-918c-1c7d286fe3bc": {
-        "id": "69e1b512-31b7-4eaf-918c-1c7d286fe3bc",
+      "web-951990f1": {
+        "id": "web-951990f1",
         "containedBy": "machine-3c7fde6",
         "containerDefinitionId": "web",
         "type": "docker",
@@ -204,6 +167,42 @@
           "buildNumber": 2,
           "version": "0.0.0"
         }
+      },
+      "machine-14bce9a5": {
+        "id": "machine-14bce9a5",
+        "containedBy": "webSg-af30ca23",
+        "containerDefinitionId": "machine",
+        "type": "aws-ami",
+        "contains": [
+          "doc-54974f31",
+          "hist-23907fa7",
+          "real-ba992e1d"
+        ],
+        "specific": {}
+      },
+      "doc-54974f31": {
+        "id": "doc-54974f31",
+        "containedBy": "machine-14bce9a5",
+        "containerDefinitionId": "doc",
+        "type": "docker",
+        "contains": [],
+        "specific": {}
+      },
+      "hist-23907fa7": {
+        "id": "hist-23907fa7",
+        "containedBy": "machine-14bce9a5",
+        "containerDefinitionId": "hist",
+        "type": "docker",
+        "contains": [],
+        "specific": {}
+      },
+      "real-ba992e1d": {
+        "id": "real-ba992e1d",
+        "containedBy": "machine-14bce9a5",
+        "containerDefinitionId": "real",
+        "type": "docker",
+        "contains": [],
+        "specific": {}
       }
     }
   }
