@@ -116,12 +116,13 @@
           "args": "-p 8000:8000 -d",
           "exec": "/bin/bash /web/run.sh"
         },
-        "buildHead": 2,
-        "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/web-1",
-        "dockerImageId": "493cd7b5579ee54dbfa5a50364add2d0b11532c0a1ab7870f23b2d10e967f2b0"
+        "buildHead": 3,
+        "binary": "/home/ubuntu/work/sudc-system/builds/web-2",
+        "dockerImageId": "055b2b3d9dd421c15b83750dced7208d60a411df1d4c919b3892a6d202e05c8a"
       },
       "id": "web",
-      "name": "web"
+      "name": "web",
+      "version": "0.0.0"
     }
   ],
   "topology": {
@@ -153,23 +154,9 @@
         "containerDefinitionId": "machine",
         "type": "aws-ami",
         "contains": [
-          "web-951990f1"
+          "69e1b512-31b7-4eaf-918c-1c7d286fe3bc"
         ],
         "specific": {}
-      },
-      "web-951990f1": {
-        "id": "web-951990f1",
-        "containedBy": "machine-3c7fde6",
-        "containerDefinitionId": "web",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "493cd7b5579ee54dbfa5a50364add2d0b11532c0a1ab7870f23b2d10e967f2b0",
-          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/web-1",
-          "dockerLocalTag": "sudc/web-1",
-          "buildNumber": 1,
-          "version": "0.0.0"
-        }
       },
       "machine-14bce9a5": {
         "id": "machine-14bce9a5",
@@ -203,6 +190,20 @@
         "containerDefinitionId": "realsrv",
         "contains": [],
         "specific": {}
+      },
+      "69e1b512-31b7-4eaf-918c-1c7d286fe3bc": {
+        "id": "69e1b512-31b7-4eaf-918c-1c7d286fe3bc",
+        "containedBy": "machine-3c7fde6",
+        "containerDefinitionId": "web",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "055b2b3d9dd421c15b83750dced7208d60a411df1d4c919b3892a6d202e05c8a",
+          "containerBinary": "/home/ubuntu/work/sudc-system/builds/web-2",
+          "dockerLocalTag": "sudc/web-2",
+          "buildNumber": 2,
+          "version": "0.0.0"
+        }
       }
     }
   }
