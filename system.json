@@ -82,12 +82,13 @@
           "args": "-p 9000:9000 -d",
           "exec": "/usr/bin/node /srv/hist-srv.js"
         },
-        "buildHead": 3,
-        "binary": "/home/ubuntu/work/sudc-system/builds/hist-2",
-        "dockerImageId": "2f175a1f94a353f9ac7a5622503ecb343c6ccab680a4188750ee2c5a33e26f4f"
+        "buildHead": 4,
+        "binary": "/home/ubuntu/work/sudc-system/builds/hist-3",
+        "dockerImageId": "155c54fdb350de24d83b42ddb4b56e1d068131a8a945a7471957cebf831dce03"
       },
       "id": "hist",
-      "name": "hist"
+      "name": "hist",
+      "version": "0.0.0"
     },
     {
       "type": "docker",
@@ -177,17 +178,9 @@
         "type": "aws-ami",
         "contains": [
           "a106f3a6-83f6-47ce-b637-df21a43e9989",
-          "hist-23907fa7",
+          "76c6cc04-e0d8-4010-af4a-616407c07d64",
           "f8fcddfc-9985-4836-815d-64f451d2df7e"
         ],
-        "specific": {}
-      },
-      "hist-23907fa7": {
-        "id": "hist-23907fa7",
-        "containedBy": "machine-14bce9a5",
-        "containerDefinitionId": "hist",
-        "type": "docker",
-        "contains": [],
         "specific": {}
       },
       "a106f3a6-83f6-47ce-b637-df21a43e9989": {
@@ -215,6 +208,20 @@
           "containerBinary": "/home/ubuntu/work/sudc-system/builds/real-4",
           "dockerLocalTag": "sudc/real-4",
           "buildNumber": 4,
+          "version": "0.0.0"
+        }
+      },
+      "76c6cc04-e0d8-4010-af4a-616407c07d64": {
+        "id": "76c6cc04-e0d8-4010-af4a-616407c07d64",
+        "containedBy": "machine-14bce9a5",
+        "containerDefinitionId": "hist",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "155c54fdb350de24d83b42ddb4b56e1d068131a8a945a7471957cebf831dce03",
+          "containerBinary": "/home/ubuntu/work/sudc-system/builds/hist-3",
+          "dockerLocalTag": "sudc/hist-3",
+          "buildNumber": 3,
           "version": "0.0.0"
         }
       }
