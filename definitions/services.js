@@ -21,7 +21,7 @@ exports.hist = {
     repositoryUrl: 'git@github.com:nearform/sudc-history.git',
     buildScript: 'build.sh',
     execute: {
-      args: '-p 9000:9000 -d',
+      args: '-p 9003:9003 -d',
       exec: '/usr/bin/node /srv/hist-srv.js'
     }
   }
