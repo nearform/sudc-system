@@ -6,11 +6,10 @@ exports.topology = {
   aws: {
     webElb: [{
       webSg:[{machine: ['web']},
-             {machine: ['docsrv', 'histsrv', 'realsrv']}]
+             {machine: ['doc', 'hist', 'real']}]
     }]
   },
   local: {
-
     root: ['doc', 'hist', 'real', 'web']
   }
 };
