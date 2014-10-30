@@ -21,7 +21,7 @@
       "nativeId": "sudc-bal-1117399678.us-west-2.elb.amazonaws.com"
     },
     {
-      "type": "blank-container",
+      "type": "aws-sg",
       "specific": {
         "ingress": [
           {
@@ -70,8 +70,7 @@
         "dockerImageId": "1a851064660f366558995aa18b93c2e6ea82eefe2bdd1104b9372abdad596f55"
       },
       "id": "doc",
-      "name": "doc",
-      "version": "0.0.0"
+      "name": "doc"
     },
     {
       "type": "docker",
@@ -87,8 +86,7 @@
         "dockerImageId": "155c54fdb350de24d83b42ddb4b56e1d068131a8a945a7471957cebf831dce03"
       },
       "id": "hist",
-      "name": "hist",
-      "version": "0.0.0"
+      "name": "hist"
     },
     {
       "type": "docker",
@@ -104,8 +102,7 @@
         "dockerImageId": "9ecfdea3a9adc0fae0cfbf289f5edf7d4397f9cb482d3677faf228ed6c211c29"
       },
       "id": "real",
-      "name": "real",
-      "version": "0.0.0"
+      "name": "real"
     },
     {
       "type": "docker",
@@ -121,8 +118,7 @@
         "dockerImageId": "425aa0aedf790c3a34c8a545389c04d9556f31f2dccd9ab53b4af87bc1f10b55"
       },
       "id": "web",
-      "name": "web",
-      "version": "0.0.0"
+      "name": "web"
     }
   ],
   "topology": {
@@ -141,7 +137,7 @@
         "id": "webSg-af30ca23",
         "containedBy": "webElb-7bbd309b",
         "containerDefinitionId": "webSg",
-        "type": "blank-container",
+        "type": "aws-sg",
         "contains": [
           "machine-3c7fde6",
           "machine-14bce9a5"
@@ -154,9 +150,23 @@
         "containerDefinitionId": "machine",
         "type": "aws-ami",
         "contains": [
-          "9452bb67-bb6b-4414-8e15-2e8a6a751b18"
+          "web-951990f1"
         ],
         "specific": {}
+      },
+      "web-951990f1": {
+        "id": "web-951990f1",
+        "containedBy": "machine-3c7fde6",
+        "containerDefinitionId": "web",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "425aa0aedf790c3a34c8a545389c04d9556f31f2dccd9ab53b4af87bc1f10b55",
+          "containerBinary": "/home/ubuntu/work/sudc-system/builds/web-3",
+          "dockerLocalTag": "sudc/web-3",
+          "buildNumber": 3,
+          "version": "0.0.0"
+        }
       },
       "machine-14bce9a5": {
         "id": "machine-14bce9a5",
@@ -164,14 +174,14 @@
         "containerDefinitionId": "machine",
         "type": "aws-ami",
         "contains": [
-          "a106f3a6-83f6-47ce-b637-df21a43e9989",
-          "76c6cc04-e0d8-4010-af4a-616407c07d64",
-          "f8fcddfc-9985-4836-815d-64f451d2df7e"
+          "doc-54974f31",
+          "hist-23907fa7",
+          "real-ba992e1d"
         ],
         "specific": {}
       },
-      "a106f3a6-83f6-47ce-b637-df21a43e9989": {
-        "id": "a106f3a6-83f6-47ce-b637-df21a43e9989",
+      "doc-54974f31": {
+        "id": "doc-54974f31",
         "containedBy": "machine-14bce9a5",
         "containerDefinitionId": "doc",
         "type": "docker",
@@ -184,22 +194,8 @@
           "version": "0.0.0"
         }
       },
-      "f8fcddfc-9985-4836-815d-64f451d2df7e": {
-        "id": "f8fcddfc-9985-4836-815d-64f451d2df7e",
-        "containedBy": "machine-14bce9a5",
-        "containerDefinitionId": "real",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "9ecfdea3a9adc0fae0cfbf289f5edf7d4397f9cb482d3677faf228ed6c211c29",
-          "containerBinary": "/home/ubuntu/work/sudc-system/builds/real-4",
-          "dockerLocalTag": "sudc/real-4",
-          "buildNumber": 4,
-          "version": "0.0.0"
-        }
-      },
-      "76c6cc04-e0d8-4010-af4a-616407c07d64": {
-        "id": "76c6cc04-e0d8-4010-af4a-616407c07d64",
+      "hist-23907fa7": {
+        "id": "hist-23907fa7",
         "containedBy": "machine-14bce9a5",
         "containerDefinitionId": "hist",
         "type": "docker",
@@ -212,17 +208,17 @@
           "version": "0.0.0"
         }
       },
-      "9452bb67-bb6b-4414-8e15-2e8a6a751b18": {
-        "id": "9452bb67-bb6b-4414-8e15-2e8a6a751b18",
-        "containedBy": "machine-3c7fde6",
-        "containerDefinitionId": "web",
+      "real-ba992e1d": {
+        "id": "real-ba992e1d",
+        "containedBy": "machine-14bce9a5",
+        "containerDefinitionId": "real",
         "type": "docker",
         "contains": [],
         "specific": {
-          "dockerImageId": "425aa0aedf790c3a34c8a545389c04d9556f31f2dccd9ab53b4af87bc1f10b55",
-          "containerBinary": "/home/ubuntu/work/sudc-system/builds/web-3",
-          "dockerLocalTag": "sudc/web-3",
-          "buildNumber": 3,
+          "dockerImageId": "9ecfdea3a9adc0fae0cfbf289f5edf7d4397f9cb482d3677faf228ed6c211c29",
+          "containerBinary": "/home/ubuntu/work/sudc-system/builds/real-4",
+          "dockerLocalTag": "sudc/real-4",
+          "buildNumber": 4,
           "version": "0.0.0"
         }
       }
