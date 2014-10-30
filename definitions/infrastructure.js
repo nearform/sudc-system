@@ -8,7 +8,9 @@ exports.webElb = {
     protocol: 'HTTP',
     loadBalancerPort: 80,
     instanceProtocol: 'HTTP',
-    instancePort: 8000
+    instancePort: 8000,
+    LoadBalancerName: 'nfd',
+    Listeners: []
   }
 };
 
