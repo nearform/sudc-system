@@ -4,9 +4,9 @@ exports.id = '62999e58-66a0-4e50-a870-f2673acf6c79';
 
 exports.topology = {
   aws: {
-    webElb: [{
-      webSg:[{machine: ['web']},
-             {machine: ['doc', 'hist', 'real']}]
+    awsWebElb: [{
+      awsWebSg:[{awsMachine: ['web']},
+                {awsMachine: ['doc', 'hist', 'real']}]
     }]
   },
   local: {
