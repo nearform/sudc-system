@@ -67,9 +67,13 @@
           "args": "-p 9002:9002 -d",
           "exec": "/usr/bin/node /srv/doc-srv.js"
         },
+        "dockerImageId": "1a851064660f366558995aa18b93c2e6ea82eefe2bdd1104b9372abdad596f55",
+        "containerBinary": "/home/ubuntu/work/sudc-system/builds/doc-6",
+        "dockerLocalTag": "sudc/doc-6",
+        "buildNumber": 6,
+        "version": "0.0.0",
         "buildHead": 7,
-        "binary": "/home/ubuntu/work/sudc-system/builds/doc-6",
-        "dockerImageId": "1a851064660f366558995aa18b93c2e6ea82eefe2bdd1104b9372abdad596f55"
+        "binary": "/home/ubuntu/work/sudc-system/builds/doc-6"
       },
       "id": "doc",
       "name": "doc"
@@ -83,9 +87,13 @@
           "args": "-p 9000:9000 -d",
           "exec": "/usr/bin/node /srv/hist-srv.js"
         },
+        "dockerImageId": "155c54fdb350de24d83b42ddb4b56e1d068131a8a945a7471957cebf831dce03",
+        "containerBinary": "/home/ubuntu/work/sudc-system/builds/hist-3",
+        "dockerLocalTag": "sudc/hist-3",
+        "buildNumber": 3,
+        "version": "0.0.0",
         "buildHead": 4,
-        "binary": "/home/ubuntu/work/sudc-system/builds/hist-3",
-        "dockerImageId": "155c54fdb350de24d83b42ddb4b56e1d068131a8a945a7471957cebf831dce03"
+        "binary": "/home/ubuntu/work/sudc-system/builds/hist-3"
       },
       "id": "hist",
       "name": "hist"
@@ -99,9 +107,13 @@
           "args": "-p 9001:9001 -d",
           "exec": "/usr/bin/node /srv/real-srv.js"
         },
+        "dockerImageId": "9ecfdea3a9adc0fae0cfbf289f5edf7d4397f9cb482d3677faf228ed6c211c29",
+        "containerBinary": "/home/ubuntu/work/sudc-system/builds/real-4",
+        "dockerLocalTag": "sudc/real-4",
+        "buildNumber": 4,
+        "version": "0.0.0",
         "buildHead": 5,
-        "binary": "/home/ubuntu/work/sudc-system/builds/real-4",
-        "dockerImageId": "9ecfdea3a9adc0fae0cfbf289f5edf7d4397f9cb482d3677faf228ed6c211c29"
+        "binary": "/home/ubuntu/work/sudc-system/builds/real-4"
       },
       "id": "real",
       "name": "real"
@@ -115,9 +127,13 @@
           "args": "-p 8000:8000 -d",
           "exec": "/bin/bash /web/run.sh"
         },
+        "dockerImageId": "425aa0aedf790c3a34c8a545389c04d9556f31f2dccd9ab53b4af87bc1f10b55",
+        "containerBinary": "/home/ubuntu/work/sudc-system/builds/web-3",
+        "dockerLocalTag": "sudc/web-3",
+        "buildNumber": 3,
+        "version": "0.0.0",
         "buildHead": 4,
-        "binary": "/home/ubuntu/work/sudc-system/builds/web-3",
-        "dockerImageId": "425aa0aedf790c3a34c8a545389c04d9556f31f2dccd9ab53b4af87bc1f10b55"
+        "binary": "/home/ubuntu/work/sudc-system/builds/web-3"
       },
       "id": "web",
       "name": "web"
@@ -133,7 +149,14 @@
         "contains": [
           "webSg-af30ca23"
         ],
-        "specific": {}
+        "specific": {
+          "protocol": "HTTP",
+          "loadBalancerPort": 80,
+          "instanceProtocol": "HTTP",
+          "instancePort": 8000,
+          "LoadBalancerName": "nfd",
+          "Listeners": []
+        }
       },
       "webSg-af30ca23": {
         "id": "webSg-af30ca23",
@@ -144,7 +167,31 @@
           "machine-3c7fde6",
           "machine-14bce9a5"
         ],
-        "specific": {}
+        "specific": {
+          "ingress": [
+            {
+              "ipProtocol": "tcp",
+              "fromPort": 22,
+              "toPort": 22,
+              "ipRanges": [
+                {
+                  "cidrIp": "0.0.0.0/0"
+                }
+              ]
+            },
+            {
+              "ipProtocol": "tcp",
+              "fromPort": 3000,
+              "toPort": 3000,
+              "ipRanges": [
+                {
+                  "cidrIp": "0.0.0.0/0"
+                }
+              ]
+            }
+          ],
+          "egress": []
+        }
       },
       "machine-3c7fde6": {
         "id": "machine-3c7fde6",
@@ -163,11 +210,19 @@
         "type": "docker",
         "contains": [],
         "specific": {
+          "repositoryUrl": "git@github.com:nearform/sudc-web.git",
+          "buildScript": "build.sh",
+          "execute": {
+            "args": "-p 8000:8000 -d",
+            "exec": "/bin/bash /web/run.sh"
+          },
           "dockerImageId": "425aa0aedf790c3a34c8a545389c04d9556f31f2dccd9ab53b4af87bc1f10b55",
           "containerBinary": "/home/ubuntu/work/sudc-system/builds/web-3",
           "dockerLocalTag": "sudc/web-3",
           "buildNumber": 3,
-          "version": "0.0.0"
+          "version": "0.0.0",
+          "buildHead": 4,
+          "binary": "/home/ubuntu/work/sudc-system/builds/web-3"
         }
       },
       "machine-14bce9a5": {
@@ -189,11 +244,19 @@
         "type": "docker",
         "contains": [],
         "specific": {
+          "repositoryUrl": "git@github.com:nearform/sudc-doc.git",
+          "buildScript": "build.sh",
+          "execute": {
+            "args": "-p 9002:9002 -d",
+            "exec": "/usr/bin/node /srv/doc-srv.js"
+          },
           "dockerImageId": "1a851064660f366558995aa18b93c2e6ea82eefe2bdd1104b9372abdad596f55",
           "containerBinary": "/home/ubuntu/work/sudc-system/builds/doc-6",
           "dockerLocalTag": "sudc/doc-6",
           "buildNumber": 6,
-          "version": "0.0.0"
+          "version": "0.0.0",
+          "buildHead": 7,
+          "binary": "/home/ubuntu/work/sudc-system/builds/doc-6"
         }
       },
       "hist-23907fa7": {
@@ -203,11 +266,19 @@
         "type": "docker",
         "contains": [],
         "specific": {
+          "repositoryUrl": "git@github.com:nearform/sudc-history.git",
+          "buildScript": "build.sh",
+          "execute": {
+            "args": "-p 9000:9000 -d",
+            "exec": "/usr/bin/node /srv/hist-srv.js"
+          },
           "dockerImageId": "155c54fdb350de24d83b42ddb4b56e1d068131a8a945a7471957cebf831dce03",
           "containerBinary": "/home/ubuntu/work/sudc-system/builds/hist-3",
           "dockerLocalTag": "sudc/hist-3",
           "buildNumber": 3,
-          "version": "0.0.0"
+          "version": "0.0.0",
+          "buildHead": 4,
+          "binary": "/home/ubuntu/work/sudc-system/builds/hist-3"
         }
       },
       "real-ba992e1d": {
@@ -217,11 +288,19 @@
         "type": "docker",
         "contains": [],
         "specific": {
+          "repositoryUrl": "git@github.com:nearform/sudc-realtime.git",
+          "buildScript": "build.sh",
+          "execute": {
+            "args": "-p 9001:9001 -d",
+            "exec": "/usr/bin/node /srv/real-srv.js"
+          },
           "dockerImageId": "9ecfdea3a9adc0fae0cfbf289f5edf7d4397f9cb482d3677faf228ed6c211c29",
           "containerBinary": "/home/ubuntu/work/sudc-system/builds/real-4",
           "dockerLocalTag": "sudc/real-4",
           "buildNumber": 4,
-          "version": "0.0.0"
+          "version": "0.0.0",
+          "buildHead": 5,
+          "binary": "/home/ubuntu/work/sudc-system/builds/real-4"
         }
       }
     }
