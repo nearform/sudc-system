@@ -5,12 +5,10 @@ exports.root = {
 exports.webElb = {
   type: 'load-balancer',
   specific: {
-    protocol: 'HTTP',
-    loadBalancerPort: 80,
-    instanceProtocol: 'HTTP',
-    instancePort: 8000,
     LoadBalancerName: 'nfd',
-    Listeners: []
+    Listeners: [{Protocol: 'HTTP', LoadBalancerPort: 80, InstanceProtocol: 'HTTP', InstancePort: 8000}],
+    AvailabilityZones: ['us-west-2a'],
+    Subnets: ['subnet-838e7ef4']
   }
 };
 

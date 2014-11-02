@@ -11,12 +11,25 @@
     {
       "type": "aws-elb",
       "specific": {
+        "LoadBalancerName": "nfd",
+        "Listeners": [
+          {
+            "Protocol": "HTTP",
+            "LoadBalancerPort": 80,
+            "InstanceProtocol": "HTTP",
+            "InstancePort": 8000
+          }
+        ],
+        "AvailabilityZones": [
+          "us-west-2a"
+        ],
+        "Subnets": [
+          "subnet-838e7ef4"
+        ],
         "protocol": "HTTP",
         "loadBalancerPort": 80,
         "instanceProtocol": "HTTP",
-        "instancePort": 8000,
-        "LoadBalancerName": "nfd",
-        "Listeners": []
+        "instancePort": 8000
       },
       "id": "webElb",
       "name": "webElb",
@@ -150,12 +163,25 @@
           "webSg-af30ca23"
         ],
         "specific": {
+          "LoadBalancerName": "nfd",
+          "Listeners": [
+            {
+              "Protocol": "HTTP",
+              "LoadBalancerPort": 80,
+              "InstanceProtocol": "HTTP",
+              "InstancePort": 8000
+            }
+          ],
+          "AvailabilityZones": [
+            "us-west-2a"
+          ],
+          "Subnets": [
+            "subnet-838e7ef4"
+          ],
           "protocol": "HTTP",
           "loadBalancerPort": 80,
           "instanceProtocol": "HTTP",
-          "instancePort": 8000,
-          "LoadBalancerName": "nfd",
-          "Listeners": []
+          "instancePort": 8000
         }
       },
       "webSg-af30ca23": {
