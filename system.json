@@ -5,13 +5,13 @@
   "containerDefinitions": [
     {
       "type": "blank-container",
-      "id": "root",
-      "name": "root"
+      "id": "awsRoot",
+      "name": "awsRoot"
     },
     {
       "type": "aws-elb",
       "specific": {
-        "LoadBalancerName": "nfd",
+        "LoadBalancerName": "webElb",
         "Listeners": [
           {
             "Protocol": "HTTP",
@@ -27,45 +27,119 @@
           "subnet-838e7ef4"
         ]
       },
-      "id": "webElb",
-      "name": "webElb",
-      "nativeId": "sudc-bal-1117399678.us-west-2.elb.amazonaws.com"
+      "id": "awsWebElb",
+      "name": "awsWebElb"
     },
     {
       "type": "aws-sg",
       "specific": {
-        "ingress": [
+        "GroupName": "webSg",
+        "Description": "Web security group",
+        "IpPermissions": [
           {
-            "ipProtocol": "tcp",
-            "fromPort": 22,
-            "toPort": 22,
-            "ipRanges": [
+            "IpProtocol": "tcp",
+            "FromPort": 3000,
+            "ToPort": 3000,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
               {
-                "cidrIp": "0.0.0.0/0"
+                "CidrIp": "0.0.0.0/0"
               }
             ]
           },
           {
-            "ipProtocol": "tcp",
-            "fromPort": 3000,
-            "toPort": 3000,
-            "ipRanges": [
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
               {
-                "cidrIp": "0.0.0.0/0"
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 9002,
+            "ToPort": 9002,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 873,
+            "ToPort": 873,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "10.0.0.0/8"
+              }
+            ]
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 9001,
+            "ToPort": 9001,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 9000,
+            "ToPort": 9000,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 8000,
+            "ToPort": 8000,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
               }
             ]
           }
         ],
-        "egress": []
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          }
+        ],
+        "VpcId": "vpc-bfbf79da",
+        "Tags": []
       },
-      "id": "webSg",
-      "name": "webSg",
-      "nativeId": "sg-5bdc573e"
+      "id": "awsWebSg",
+      "name": "awsWebSg"
     },
     {
       "type": "aws-ami",
-      "id": "machine",
-      "name": "machine"
+      "id": "awsMachine",
+      "name": "awsMachine"
+    },
+    {
+      "type": "blank-container",
+      "id": "root",
+      "name": "root"
     },
     {
       "type": "docker",
@@ -150,16 +224,16 @@
   ],
   "topology": {
     "containers": {
-      "webElb-7bbd309b": {
-        "id": "webElb-7bbd309b",
-        "containedBy": "webElb-7bbd309b",
-        "containerDefinitionId": "webElb",
+      "awsWebElb-1bd74778": {
+        "id": "awsWebElb-1bd74778",
+        "containedBy": "awsWebElb-1bd74778",
+        "containerDefinitionId": "awsWebElb",
         "type": "aws-elb",
         "contains": [
-          "webSg-af30ca23"
+          "awsWebSg-b5e731b6"
         ],
         "specific": {
-          "LoadBalancerName": "nfd",
+          "LoadBalancerName": "webElb",
           "Listeners": [
             {
               "Protocol": "HTTP",
@@ -176,54 +250,125 @@
           ]
         }
       },
-      "webSg-af30ca23": {
-        "id": "webSg-af30ca23",
-        "containedBy": "webElb-7bbd309b",
-        "containerDefinitionId": "webSg",
+      "awsWebSg-b5e731b6": {
+        "id": "awsWebSg-b5e731b6",
+        "containedBy": "awsWebElb-1bd74778",
+        "containerDefinitionId": "awsWebSg",
         "type": "aws-sg",
         "contains": [
-          "machine-3c7fde6",
-          "machine-14bce9a5"
+          "awsMachine-9f586a08",
+          "awsMachine-4fd2667"
         ],
         "specific": {
-          "ingress": [
+          "GroupName": "webSg",
+          "Description": "Web security group",
+          "IpPermissions": [
             {
-              "ipProtocol": "tcp",
-              "fromPort": 22,
-              "toPort": 22,
-              "ipRanges": [
+              "IpProtocol": "tcp",
+              "FromPort": 3000,
+              "ToPort": 3000,
+              "UserIdGroupPairs": [],
+              "IpRanges": [
                 {
-                  "cidrIp": "0.0.0.0/0"
+                  "CidrIp": "0.0.0.0/0"
                 }
               ]
             },
             {
-              "ipProtocol": "tcp",
-              "fromPort": 3000,
-              "toPort": 3000,
-              "ipRanges": [
+              "IpProtocol": "tcp",
+              "FromPort": 22,
+              "ToPort": 22,
+              "UserIdGroupPairs": [],
+              "IpRanges": [
                 {
-                  "cidrIp": "0.0.0.0/0"
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            },
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 9002,
+              "ToPort": 9002,
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            },
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 873,
+              "ToPort": 873,
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "10.0.0.0/8"
+                }
+              ]
+            },
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 9001,
+              "ToPort": 9001,
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            },
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 9000,
+              "ToPort": 9000,
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            },
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 8000,
+              "ToPort": 8000,
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
                 }
               ]
             }
           ],
-          "egress": []
+          "IpPermissionsEgress": [
+            {
+              "IpProtocol": "-1",
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            }
+          ],
+          "VpcId": "vpc-bfbf79da",
+          "Tags": []
         }
       },
-      "machine-3c7fde6": {
-        "id": "machine-3c7fde6",
-        "containedBy": "webSg-af30ca23",
-        "containerDefinitionId": "machine",
+      "awsMachine-9f586a08": {
+        "id": "awsMachine-9f586a08",
+        "containedBy": "awsWebSg-b5e731b6",
+        "containerDefinitionId": "awsMachine",
         "type": "aws-ami",
         "contains": [
-          "web-951990f1"
+          "web-3b8fd4eb"
         ],
         "specific": {}
       },
-      "web-951990f1": {
-        "id": "web-951990f1",
-        "containedBy": "machine-3c7fde6",
+      "web-3b8fd4eb": {
+        "id": "web-3b8fd4eb",
+        "containedBy": "awsMachine-9f586a08",
         "containerDefinitionId": "web",
         "type": "docker",
         "contains": [],
@@ -243,21 +388,21 @@
           "binary": "/home/ubuntu/work/sudc-system/builds/web-3"
         }
       },
-      "machine-14bce9a5": {
-        "id": "machine-14bce9a5",
-        "containedBy": "webSg-af30ca23",
-        "containerDefinitionId": "machine",
+      "awsMachine-4fd2667": {
+        "id": "awsMachine-4fd2667",
+        "containedBy": "awsWebSg-b5e731b6",
+        "containerDefinitionId": "awsMachine",
         "type": "aws-ami",
         "contains": [
-          "doc-54974f31",
-          "hist-23907fa7",
-          "real-ba992e1d"
+          "doc-a680359d",
+          "hist-d187050b",
+          "real-488e54b1"
         ],
         "specific": {}
       },
-      "doc-54974f31": {
-        "id": "doc-54974f31",
-        "containedBy": "machine-14bce9a5",
+      "doc-a680359d": {
+        "id": "doc-a680359d",
+        "containedBy": "awsMachine-4fd2667",
         "containerDefinitionId": "doc",
         "type": "docker",
         "contains": [],
@@ -277,9 +422,9 @@
           "binary": "/home/ubuntu/work/sudc-system/builds/doc-6"
         }
       },
-      "hist-23907fa7": {
-        "id": "hist-23907fa7",
-        "containedBy": "machine-14bce9a5",
+      "hist-d187050b": {
+        "id": "hist-d187050b",
+        "containedBy": "awsMachine-4fd2667",
         "containerDefinitionId": "hist",
         "type": "docker",
         "contains": [],
@@ -299,9 +444,9 @@
           "binary": "/home/ubuntu/work/sudc-system/builds/hist-3"
         }
       },
-      "real-ba992e1d": {
-        "id": "real-ba992e1d",
-        "containedBy": "machine-14bce9a5",
+      "real-488e54b1": {
+        "id": "real-488e54b1",
+        "containedBy": "awsMachine-4fd2667",
         "containerDefinitionId": "real",
         "type": "docker",
         "contains": [],
