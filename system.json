@@ -25,7 +25,11 @@
         ],
         "Subnets": [
           "subnet-838e7ef4"
-        ]
+        ],
+        "protocol": "HTTP",
+        "loadBalancerPort": 80,
+        "instanceProtocol": "HTTP",
+        "instancePort": 8000
       },
       "id": "webElb",
       "name": "webElb",
