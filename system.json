@@ -133,9 +133,6 @@
     },
     {
       "type": "aws-ami",
-      "specific": {
-        "ImageId": "ami-cf0741ff"
-      },
       "id": "awsMachine",
       "name": "awsMachine"
     },
@@ -251,7 +248,8 @@
           "Subnets": [
             "subnet-838e7ef4"
           ]
-        }
+        },
+        "nativeId": "webElb-1617703544.us-west-2.elb.amazonaws.com"
       },
       "awsWebSg-b5e731b6": {
         "id": "awsWebSg-b5e731b6",
@@ -357,7 +355,8 @@
           ],
           "VpcId": "vpc-bfbf79da",
           "Tags": []
-        }
+        },
+        "nativeId": "sg-bb9ff3de"
       },
       "awsMachine-9f586a08": {
         "id": "awsMachine-9f586a08",
@@ -367,9 +366,7 @@
         "contains": [
           "web-3b8fd4eb"
         ],
-        "specific": {
-          "ImageId": "ami-cf0741ff"
-        }
+        "specific": {}
       },
       "web-3b8fd4eb": {
         "id": "web-3b8fd4eb",
@@ -403,9 +400,7 @@
           "hist-d187050b",
           "real-488e54b1"
         ],
-        "specific": {
-          "ImageId": "ami-cf0741ff"
-        }
+        "specific": {}
       },
       "doc-a680359d": {
         "id": "doc-a680359d",
@@ -474,5 +469,6 @@
         }
       }
     }
-  }
+  },
+  "dirty": false
 }
