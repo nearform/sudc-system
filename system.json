@@ -268,7 +268,7 @@
             "subnet-838e7ef4"
           ]
         },
-        "nativeId": "webElb-1617703544.us-west-2.elb.amazonaws.com"
+        "nativeId": "webElb-1563314154.us-west-2.elb.amazonaws.com"
       },
       "awsWebSg-b5e731b6": {
         "id": "awsWebSg-b5e731b6",
@@ -375,7 +375,7 @@
           "VpcId": "vpc-bfbf79da",
           "Tags": []
         },
-        "nativeId": "sg-bb9ff3de"
+        "nativeId": "sg-6ee38f0b"
       },
       "awsMachine-9f586a08": {
         "id": "awsMachine-9f586a08",
@@ -386,25 +386,28 @@
           "web-3b8fd4eb"
         ],
         "specific": {
-          "ImageId": "ami-cf0741ff",
           "imageId": "ami-cf0741ff",
-          "instanceId": "i-e53bc2e9",
-          "publicIpAddress": "54.191.244.183",
-          "privateIpAddress": "172.30.0.205",
+          "instanceId": "i-8c12eb80",
+          "publicIpAddress": "54.69.161.103",
+          "privateIpAddress": "172.30.0.30",
           "securityGroups": [
             {
               "GroupName": "webSg",
-              "GroupId": "sg-bb9ff3de"
+              "GroupId": "sg-6ee38f0b"
             }
           ],
           "tags": [
+            {
+              "Key": "Name",
+              "Value": "demo2"
+            },
             {
               "Key": "nscale-system",
               "Value": "sudc-system"
             }
           ]
         },
-        "nativeId": "i-e53bc2e9"
+        "nativeId": "i-8c12eb80"
       },
       "web-3b8fd4eb": {
         "id": "web-3b8fd4eb",
@@ -526,5 +529,6 @@
         }
       }
     }
-  }
+  },
+  "dirty": false
 }
