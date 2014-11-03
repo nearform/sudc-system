@@ -133,11 +133,27 @@
     },
     {
       "type": "aws-ami",
+      "name": "demo2",
       "specific": {
-        "ImageId": "ami-cf0741ff"
+        "ImageId": "ami-cf0741ff",
+        "imageId": "ami-cf0741ff",
+        "instanceId": "i-e53bc2e9",
+        "publicIpAddress": "54.191.244.183",
+        "privateIpAddress": "172.30.0.205",
+        "securityGroups": [
+          {
+            "GroupName": "webSg",
+            "GroupId": "sg-bb9ff3de"
+          }
+        ],
+        "tags": [
+          {
+            "Key": "nscale-system",
+            "Value": "sudc-system"
+          }
+        ]
       },
-      "id": "awsMachine",
-      "name": "awsMachine"
+      "id": "awsMachine"
     },
     {
       "type": "blank-container",
@@ -370,6 +386,7 @@
           "web-3b8fd4eb"
         ],
         "specific": {
+          "ImageId": "ami-cf0741ff",
           "imageId": "ami-cf0741ff",
           "instanceId": "i-e53bc2e9",
           "publicIpAddress": "54.191.244.183",
@@ -422,8 +439,25 @@
           "real-488e54b1"
         ],
         "specific": {
-          "ImageId": "ami-cf0741ff"
-        }
+          "ImageId": "ami-cf0741ff",
+          "imageId": "ami-cf0741ff",
+          "instanceId": "i-e53bc2e9",
+          "publicIpAddress": "54.191.244.183",
+          "privateIpAddress": "172.30.0.205",
+          "securityGroups": [
+            {
+              "GroupName": "webSg",
+              "GroupId": "sg-bb9ff3de"
+            }
+          ],
+          "tags": [
+            {
+              "Key": "nscale-system",
+              "Value": "sudc-system"
+            }
+          ]
+        },
+        "nativeId": "i-e53bc2e9"
       },
       "doc-a680359d": {
         "id": "doc-a680359d",
@@ -492,6 +526,5 @@
         }
       }
     }
-  },
-  "dirty": false
+  }
 }

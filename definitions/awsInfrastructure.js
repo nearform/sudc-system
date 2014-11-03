@@ -37,6 +37,7 @@ exports.awsWebSg = {
 
 exports.awsMachine = {
   type: 'machine-image',
+  name: 'demo2',
   specific: {
     ImageId: 'ami-cf0741ff'
   }
