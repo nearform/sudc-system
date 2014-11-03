@@ -133,6 +133,9 @@
     },
     {
       "type": "aws-ami",
+      "specific": {
+        "ImageId": "ami-cf0741ff"
+      },
       "id": "awsMachine",
       "name": "awsMachine"
     },
@@ -366,7 +369,9 @@
         "contains": [
           "web-3b8fd4eb"
         ],
-        "specific": {}
+        "specific": {
+          "ImageId": "ami-cf0741ff"
+        }
       },
       "web-3b8fd4eb": {
         "id": "web-3b8fd4eb",
@@ -400,7 +405,9 @@
           "hist-d187050b",
           "real-488e54b1"
         ],
-        "specific": {}
+        "specific": {
+          "ImageId": "ami-cf0741ff"
+        }
       },
       "doc-a680359d": {
         "id": "doc-a680359d",
@@ -469,6 +476,5 @@
         }
       }
     }
-  },
-  "dirty": false
+  }
 }
