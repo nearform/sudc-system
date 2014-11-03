@@ -20,95 +20,16 @@ exports.awsWebSg = {
     GroupName: 'webSg',
     Description: 'Web security group',
     IpPermissions: [
-      {
-        'IpProtocol': 'tcp',
-        'FromPort': 3000,
-        'ToPort': 3000,
-        'UserIdGroupPairs': [],
-        'IpRanges': [
-          {
-            'CidrIp': '0.0.0.0/0'
-          }
-        ]
-      },
-      {
-        'IpProtocol': 'tcp',
-        'FromPort': 22,
-        'ToPort': 22,
-        'UserIdGroupPairs': [],
-        'IpRanges': [
-          {
-            'CidrIp': '0.0.0.0/0'
-          }
-        ]
-      },
-      {
-        'IpProtocol': 'tcp',
-        'FromPort': 9002,
-        'ToPort': 9002,
-        'UserIdGroupPairs': [],
-        'IpRanges': [
-          {
-            'CidrIp': '0.0.0.0/0'
-          }
-        ]
-      },
-      {
-        'IpProtocol': 'tcp',
-        'FromPort': 873,
-        'ToPort': 873,
-        'UserIdGroupPairs': [],
-        'IpRanges': [
-          {
-            'CidrIp': '10.0.0.0/8'
-          }
-        ]
-      },
-      {
-        'IpProtocol': 'tcp',
-        'FromPort': 9001,
-        'ToPort': 9001,
-        'UserIdGroupPairs': [],
-        'IpRanges': [
-          {
-            'CidrIp': '0.0.0.0/0'
-          }
-        ]
-      },
-      {
-        'IpProtocol': 'tcp',
-        'FromPort': 9000,
-        'ToPort': 9000,
-        'UserIdGroupPairs': [],
-        'IpRanges': [
-          {
-            'CidrIp': '0.0.0.0/0'
-          }
-        ]
-      },
-      {
-        'IpProtocol': 'tcp',
-        'FromPort': 8000,
-        'ToPort': 8000,
-        'UserIdGroupPairs': [],
-        'IpRanges': [
-          {
-            'CidrIp': '0.0.0.0/0'
-          }
-        ]
-      }
+      { 'IpProtocol': 'tcp', 'FromPort': 3000, 'ToPort': 3000, 'UserIdGroupPairs': [], 'IpRanges': [ { 'CidrIp': '0.0.0.0/0' } ] },
+      { 'IpProtocol': 'tcp', 'FromPort': 22, 'ToPort': 22, 'UserIdGroupPairs': [], 'IpRanges': [ { 'CidrIp': '0.0.0.0/0' } ] },
+      { 'IpProtocol': 'tcp', 'FromPort': 9002, 'ToPort': 9002, 'UserIdGroupPairs': [], 'IpRanges': [ { 'CidrIp': '0.0.0.0/0' } ] },
+      { 'IpProtocol': 'tcp', 'FromPort': 873, 'ToPort': 873, 'UserIdGroupPairs': [], 'IpRanges': [ { 'CidrIp': '10.0.0.0/8' } ] },
+      { 'IpProtocol': 'tcp', 'FromPort': 9001, 'ToPort': 9001, 'UserIdGroupPairs': [], 'IpRanges': [ { 'CidrIp': '0.0.0.0/0' } ] },
+      { 'IpProtocol': 'tcp', 'FromPort': 9000, 'ToPort': 9000, 'UserIdGroupPairs': [], 'IpRanges': [ { 'CidrIp': '0.0.0.0/0' } ] },
+      { 'IpProtocol': 'tcp', 'FromPort': 8000, 'ToPort': 8000, 'UserIdGroupPairs': [], 'IpRanges': [ { 'CidrIp': '0.0.0.0/0' } ] }
     ],
     IpPermissionsEgress: [
-      {
-        IpProtocol: '-1',
-        UserIdGroupPairs: [],
-        IpRanges: [
-          {
-            'CidrIp': '0.0.0.0/0'
-          }
-        ]
-      }
-    ],
+      { IpProtocol: '-1', UserIdGroupPairs: [], IpRanges: [ { 'CidrIp': '0.0.0.0/0' } ] } ],
     VpcId: 'vpc-bfbf79da',
     Tags: []
   }
@@ -116,5 +37,8 @@ exports.awsWebSg = {
 
 exports.awsMachine = {
   type: 'machine-image',
+  specific: {
+    ImageId: 'ami-cf0741ff'
+  }
 };
 
