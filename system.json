@@ -375,7 +375,7 @@
           "VpcId": "vpc-bfbf79da",
           "Tags": []
         },
-        "nativeId": "sg-6ee38f0b"
+        "nativeId": "sg-c06f00a5"
       },
       "awsMachine-9f586a08": {
         "id": "awsMachine-9f586a08",
@@ -387,13 +387,13 @@
         ],
         "specific": {
           "imageId": "ami-cf0741ff",
-          "instanceId": "i-8c12eb80",
-          "publicIpAddress": "54.69.161.103",
-          "privateIpAddress": "172.30.0.30",
+          "instanceId": "i-919e659d",
+          "publicIpAddress": "54.69.107.137",
+          "privateIpAddress": "172.30.0.234",
           "securityGroups": [
             {
               "GroupName": "webSg",
-              "GroupId": "sg-6ee38f0b"
+              "GroupId": "sg-c06f00a5"
             }
           ],
           "tags": [
@@ -407,7 +407,7 @@
             }
           ]
         },
-        "nativeId": "i-8c12eb80"
+        "nativeId": "i-919e659d"
       },
       "web-3b8fd4eb": {
         "id": "web-3b8fd4eb",
