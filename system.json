@@ -22,12 +22,13 @@
           "args": "-p 9002:9002 -d",
           "exec": "/usr/bin/node /srv/doc-srv.js"
         },
-        "buildHead": 4,
-        "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/doc-3",
-        "dockerImageId": "19279ac8130e9148bce4ac406e59eec215fa0cee5d4aa88299510c51c7f3269c"
+        "buildHead": 5,
+        "binary": "/root/sudc-system/builds/doc-4",
+        "dockerImageId": "e20b840713c6dd086f40aea670c8a77a112f59f959e386f78ed8579b98d7d7e0"
       },
       "id": "doc",
-      "name": "doc"
+      "name": "doc",
+      "version": "0.0.0"
     },
     {
       "type": "docker",
@@ -85,7 +86,7 @@
         "containedBy": "machine$123-8d591e7a",
         "containerDefinitionId": "machine$123",
         "contains": [
-          "doc-754403b9",
+          "4d5f33c7-3ec7-44ea-851f-1adb3d5959f9",
           "hist-243332f",
           "real-9b4a6295",
           "web-ec4d5203"
@@ -94,26 +95,6 @@
           "user": "root",
           "identityFile": "sudc-key",
           "ipAddress": "178.62.80.16"
-        }
-      },
-      "doc-754403b9": {
-        "id": "doc-754403b9",
-        "containedBy": "machine$123-8d591e7a",
-        "containerDefinitionId": "doc",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "repositoryUrl": "git@github.com:nearform/sudc-doc.git",
-          "buildScript": "build.sh",
-          "execute": {
-            "args": "-p 9002:9002 -d",
-            "exec": "/usr/bin/node /srv/doc-srv.js"
-          },
-          "dockerImageId": "19279ac8130e9148bce4ac406e59eec215fa0cee5d4aa88299510c51c7f3269c",
-          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/doc-3",
-          "dockerLocalTag": "sudc/doc-3",
-          "buildNumber": 3,
-          "version": "0.0.0"
         }
       },
       "hist-243332f": {
@@ -173,6 +154,20 @@
           "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/web-1",
           "dockerLocalTag": "sudc/web-1",
           "buildNumber": 1,
+          "version": "0.0.0"
+        }
+      },
+      "4d5f33c7-3ec7-44ea-851f-1adb3d5959f9": {
+        "id": "4d5f33c7-3ec7-44ea-851f-1adb3d5959f9",
+        "containedBy": "machine$123-8d591e7a",
+        "containerDefinitionId": "doc",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "e20b840713c6dd086f40aea670c8a77a112f59f959e386f78ed8579b98d7d7e0",
+          "containerBinary": "/root/sudc-system/builds/doc-4",
+          "dockerLocalTag": "sudc/doc-4",
+          "buildNumber": 4,
           "version": "0.0.0"
         }
       }
