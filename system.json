@@ -175,14 +175,6 @@
           "buildNumber": 1,
           "version": "0.0.0"
         }
-      },
-      "root-bbff7e65": {
-        "id": "root-bbff7e65",
-        "containedBy": "user-bbff7e65",
-        "containerDefinitionId": "root",
-        "type": "blank-container",
-        "contains": [],
-        "specific": {}
       }
     }
   }
