@@ -73,12 +73,13 @@
           "args": "-p 8000:8000 -d",
           "exec": "/bin/bash /web/run.sh"
         },
-        "buildHead": 2,
-        "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/web-1",
-        "dockerImageId": "493cd7b5579ee54dbfa5a50364add2d0b11532c0a1ab7870f23b2d10e967f2b0"
+        "buildHead": 3,
+        "binary": "/root/sudc-system/builds/web-2",
+        "dockerImageId": "150b0d04f43a1a4b572b65f522158c55a4e456bb28d806ded0c48c65dc46ead0"
       },
       "id": "web",
-      "name": "web"
+      "name": "web",
+      "version": "0.0.0"
     }
   ],
   "topology": {
@@ -91,32 +92,12 @@
           "4d5f33c7-3ec7-44ea-851f-1adb3d5959f9",
           "72baf3e8-8349-4c65-bced-ff3a98f70e36",
           "8a1472ca-0f7b-4f09-9236-7fc231d2c7aa",
-          "web-ec4d5203"
+          "48e9fcf0-d6f9-48b7-98b7-37fab549fa3c"
         ],
         "specific": {
           "user": "root",
           "identityFile": "sudc-key",
           "ipAddress": "178.62.80.16"
-        }
-      },
-      "web-ec4d5203": {
-        "id": "web-ec4d5203",
-        "containedBy": "machine$123-8d591e7a",
-        "containerDefinitionId": "web",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "repositoryUrl": "git@github.com:nearform/sudc-web.git",
-          "buildScript": "build.sh",
-          "execute": {
-            "args": "-p 8000:8000 -d",
-            "exec": "/bin/bash /web/run.sh"
-          },
-          "dockerImageId": "493cd7b5579ee54dbfa5a50364add2d0b11532c0a1ab7870f23b2d10e967f2b0",
-          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/web-1",
-          "dockerLocalTag": "sudc/web-1",
-          "buildNumber": 1,
-          "version": "0.0.0"
         }
       },
       "4d5f33c7-3ec7-44ea-851f-1adb3d5959f9": {
@@ -158,6 +139,20 @@
           "containerBinary": "/root/sudc-system/builds/real-3",
           "dockerLocalTag": "sudc/real-3",
           "buildNumber": 3,
+          "version": "0.0.0"
+        }
+      },
+      "48e9fcf0-d6f9-48b7-98b7-37fab549fa3c": {
+        "id": "48e9fcf0-d6f9-48b7-98b7-37fab549fa3c",
+        "containedBy": "machine$123-8d591e7a",
+        "containerDefinitionId": "web",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "150b0d04f43a1a4b572b65f522158c55a4e456bb28d806ded0c48c65dc46ead0",
+          "containerBinary": "/root/sudc-system/builds/web-2",
+          "dockerLocalTag": "sudc/web-2",
+          "buildNumber": 2,
           "version": "0.0.0"
         }
       }
