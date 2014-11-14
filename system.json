@@ -56,12 +56,13 @@
           "args": "-p 9001:9001 -d",
           "exec": "/usr/bin/node /srv/real-srv.js"
         },
-        "buildHead": 3,
-        "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/real-2",
-        "dockerImageId": "3d8943bbd715b253d288d3da06fa98cc1d2582fa9064fbd63455c7aa31f71472"
+        "buildHead": 4,
+        "binary": "/root/sudc-system/builds/real-3",
+        "dockerImageId": "1d02e82fff7d51209615f0d4fbaca531625d6a3fdc2d2caffd9466bdee60429f"
       },
       "id": "real",
-      "name": "real"
+      "name": "real",
+      "version": "0.0.0"
     },
     {
       "type": "docker",
@@ -89,33 +90,13 @@
         "contains": [
           "4d5f33c7-3ec7-44ea-851f-1adb3d5959f9",
           "72baf3e8-8349-4c65-bced-ff3a98f70e36",
-          "real-9b4a6295",
+          "8a1472ca-0f7b-4f09-9236-7fc231d2c7aa",
           "web-ec4d5203"
         ],
         "specific": {
           "user": "root",
           "identityFile": "sudc-key",
           "ipAddress": "178.62.80.16"
-        }
-      },
-      "real-9b4a6295": {
-        "id": "real-9b4a6295",
-        "containedBy": "machine$123-8d591e7a",
-        "containerDefinitionId": "real",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "repositoryUrl": "git@github.com:nearform/sudc-realtime.git",
-          "buildScript": "build.sh",
-          "execute": {
-            "args": "-p 9001:9001 -d",
-            "exec": "/usr/bin/node /srv/real-srv.js"
-          },
-          "dockerImageId": "3d8943bbd715b253d288d3da06fa98cc1d2582fa9064fbd63455c7aa31f71472",
-          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/real-2",
-          "dockerLocalTag": "sudc/real-2",
-          "buildNumber": 2,
-          "version": "0.0.0"
         }
       },
       "web-ec4d5203": {
@@ -163,6 +144,20 @@
           "containerBinary": "/root/sudc-system/builds/hist-2",
           "dockerLocalTag": "sudc/hist-2",
           "buildNumber": 2,
+          "version": "0.0.0"
+        }
+      },
+      "8a1472ca-0f7b-4f09-9236-7fc231d2c7aa": {
+        "id": "8a1472ca-0f7b-4f09-9236-7fc231d2c7aa",
+        "containedBy": "machine$123-8d591e7a",
+        "containerDefinitionId": "real",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "1d02e82fff7d51209615f0d4fbaca531625d6a3fdc2d2caffd9466bdee60429f",
+          "containerBinary": "/root/sudc-system/builds/real-3",
+          "dockerLocalTag": "sudc/real-3",
+          "buildNumber": 3,
           "version": "0.0.0"
         }
       }
