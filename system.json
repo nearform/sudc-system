@@ -39,12 +39,13 @@
           "args": "-p 9003:9003 -d",
           "exec": "/usr/bin/node /srv/hist-srv.js"
         },
-        "buildHead": 2,
-        "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/hist-1",
-        "dockerImageId": "ffd8a6a135bdf9f8b3f783be61f1b29f54391af9e53295aa194a21abfc29c419"
+        "buildHead": 3,
+        "binary": "/root/sudc-system/builds/hist-2",
+        "dockerImageId": "e571ac568fba475f98ef9273aeae1ac4c05dd72bde54dcfb3c98f7ad75cea0b9"
       },
       "id": "hist",
-      "name": "hist"
+      "name": "hist",
+      "version": "0.0.0"
     },
     {
       "type": "docker",
@@ -87,7 +88,7 @@
         "containerDefinitionId": "machine$123",
         "contains": [
           "4d5f33c7-3ec7-44ea-851f-1adb3d5959f9",
-          "hist-243332f",
+          "72baf3e8-8349-4c65-bced-ff3a98f70e36",
           "real-9b4a6295",
           "web-ec4d5203"
         ],
@@ -95,26 +96,6 @@
           "user": "root",
           "identityFile": "sudc-key",
           "ipAddress": "178.62.80.16"
-        }
-      },
-      "hist-243332f": {
-        "id": "hist-243332f",
-        "containedBy": "machine$123-8d591e7a",
-        "containerDefinitionId": "hist",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "repositoryUrl": "git@github.com:nearform/sudc-history.git",
-          "buildScript": "build.sh",
-          "execute": {
-            "args": "-p 9003:9003 -d",
-            "exec": "/usr/bin/node /srv/hist-srv.js"
-          },
-          "dockerImageId": "ffd8a6a135bdf9f8b3f783be61f1b29f54391af9e53295aa194a21abfc29c419",
-          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/hist-1",
-          "dockerLocalTag": "sudc/hist-1",
-          "buildNumber": 1,
-          "version": "0.0.0"
         }
       },
       "real-9b4a6295": {
@@ -168,6 +149,20 @@
           "containerBinary": "/root/sudc-system/builds/doc-4",
           "dockerLocalTag": "sudc/doc-4",
           "buildNumber": 4,
+          "version": "0.0.0"
+        }
+      },
+      "72baf3e8-8349-4c65-bced-ff3a98f70e36": {
+        "id": "72baf3e8-8349-4c65-bced-ff3a98f70e36",
+        "containedBy": "machine$123-8d591e7a",
+        "containerDefinitionId": "hist",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "e571ac568fba475f98ef9273aeae1ac4c05dd72bde54dcfb3c98f7ad75cea0b9",
+          "containerBinary": "/root/sudc-system/builds/hist-2",
+          "dockerLocalTag": "sudc/hist-2",
+          "buildNumber": 2,
           "version": "0.0.0"
         }
       }
