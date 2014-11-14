@@ -11,7 +11,8 @@ exports.topology = {
       contains: ['doc', 'hist', 'real', 'web'],
       specific: {
         user: 'root',
-        identityFile: 'sudc-key'
+        identityFile: 'sudc-key',
+        ipAddress: '178.62.80.16'
       }
     }
   }

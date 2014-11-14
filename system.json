@@ -92,7 +92,8 @@
         ],
         "specific": {
           "user": "root",
-          "identityFile": "sudc-key"
+          "identityFile": "sudc-key",
+          "ipAddress": "178.62.80.16"
         }
       },
       "doc-754403b9": {
