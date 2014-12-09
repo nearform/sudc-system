@@ -5,7 +5,7 @@ exports.root = {
 exports.doc = {
   type: 'process',
   specific: {
-    repositoryUrl: 'git@github.com:nearform/sudc-doc.git',
+    repositoryUrl: 'https://github.com/nearform/sudc-doc.git',
     buildScript: 'build.sh',
     execute: {
       args: '-p 9002:9002 -d',
@@ -18,7 +18,7 @@ exports.doc = {
 exports.hist = {
   type: 'process',
   specific: {
-    repositoryUrl: 'git@github.com:nearform/sudc-history.git',
+    repositoryUrl: 'https://github.com/nearform/sudc-history.git',
     buildScript: 'build.sh',
     execute: {
       args: '-p 9003:9003 -d',
@@ -30,7 +30,7 @@ exports.hist = {
 exports.real = {
   type: 'process',
   specific: {
-    repositoryUrl: 'git@github.com:nearform/sudc-realtime.git',
+    repositoryUrl: 'https://github.com/nearform/sudc-realtime.git',
     buildScript: 'build.sh',
     execute: {
       args: '-p 9001:9001 -d',
@@ -42,7 +42,7 @@ exports.real = {
 exports.web = {
   type: 'process',
   specific: {
-    repositoryUrl: 'git@github.com:nearform/sudc-web.git',
+    repositoryUrl: 'https://github.com/nearform/sudc-web.git',
     buildScript: 'build.sh',
     execute: {
       args: '-p 8000:8000 -d',
