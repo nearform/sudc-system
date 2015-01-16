@@ -5,8 +5,7 @@ exports.root = {
 exports.doc = {
   type: 'process',
   specific: {
-    repositoryUrl: 'https://github.com/nearform/sudc-doc.git',
-    buildScript: 'build.sh',
+    repositoryUrl: 'https://github.com/kamil-mech/sudc-doc.git',
     execute: {
       args: '-p 9002:9002 -d',
       exec: '/usr/bin/node /srv/doc-srv.js'
@@ -18,8 +17,7 @@ exports.doc = {
 exports.hist = {
   type: 'process',
   specific: {
-    repositoryUrl: 'https://github.com/nearform/sudc-history.git',
-    buildScript: 'build.sh',
+    repositoryUrl: 'https://github.com/darragh-hayes/sudc-history/tree/update_dockerfile.git',
     execute: {
       args: '-p 9003:9003 -d',
       exec: '/usr/bin/node /srv/hist-srv.js'
@@ -30,8 +28,7 @@ exports.hist = {
 exports.real = {
   type: 'process',
   specific: {
-    repositoryUrl: 'https://github.com/nearform/sudc-realtime.git',
-    buildScript: 'build.sh',
+    repositoryUrl: 'https://github.com/darragh-hayes/sudc-realtime/tree/update_dockerfile.git',
     execute: {
       args: '-p 9001:9001 -d',
       exec: '/usr/bin/node /srv/real-srv.js'
@@ -42,8 +39,7 @@ exports.real = {
 exports.web = {
   type: 'process',
   specific: {
-    repositoryUrl: 'https://github.com/nearform/sudc-web.git',
-    buildScript: 'build.sh',
+    repositoryUrl: 'https://github.com/darragh-hayes/sudc-web.git',
     execute: {
       args: '-p 8000:8000 -d',
       exec: '/bin/bash /web/run.sh'
