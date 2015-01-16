@@ -46,11 +46,12 @@
           "args": "-p 9001:9001 -d",
           "exec": "node /srv/real-srv.js"
         },
-        "buildHead": 4,
-        "dockerImageId": "0b8d6ec98ab45beaafd2ed188e2add9f58784ee87ac43bb4185f3d082390b345"
+        "buildHead": 5,
+        "dockerImageId": "d4de65ef2f52b1ee654b0bfbf628f17b8dbc7f041104a9a2fbfd550b574040f0"
       },
       "id": "real",
-      "name": "real"
+      "name": "real",
+      "version": "0.0.0"
     },
     {
       "type": "docker",
@@ -77,28 +78,10 @@
         "contains": [
           "1525e8ca-3b05-4d69-9f35-7d67b73fd5e0",
           "ebd5232d-1454-4b15-9b5e-6e9a9f305743",
-          "real-2d11f002",
+          "26a8b7ee-b7c5-4fe6-829a-68a472ee7204",
           "web-5a16c094"
         ],
         "specific": {}
-      },
-      "real-2d11f002": {
-        "id": "real-2d11f002",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "real",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "repositoryUrl": "https://github.com/darragh-hayes/sudc-realtime.git",
-          "execute": {
-            "args": "-p 9001:9001 -d",
-            "exec": "node /srv/real-srv.js"
-          },
-          "dockerImageId": "0b8d6ec98ab45beaafd2ed188e2add9f58784ee87ac43bb4185f3d082390b345",
-          "dockerLocalTag": "localhost:8011/sudc/real-3",
-          "buildNumber": 3,
-          "version": "0.0.0"
-        }
       },
       "web-5a16c094": {
         "id": "web-5a16c094",
@@ -141,6 +124,19 @@
           "dockerImageId": "7f3b1888a830c5e263c754cfcb71c227f3c9c13c79c6a694a145f661f982aac6",
           "dockerLocalTag": "localhost:8011/sudc/hist-3",
           "buildNumber": 3,
+          "version": "0.0.0"
+        }
+      },
+      "26a8b7ee-b7c5-4fe6-829a-68a472ee7204": {
+        "id": "26a8b7ee-b7c5-4fe6-829a-68a472ee7204",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "real",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "d4de65ef2f52b1ee654b0bfbf628f17b8dbc7f041104a9a2fbfd550b574040f0",
+          "dockerLocalTag": "localhost:8011/sudc/real-4",
+          "buildNumber": 4,
           "version": "0.0.0"
         }
       }
