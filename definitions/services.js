@@ -17,7 +17,7 @@ exports.doc = {
 exports.hist = {
   type: 'process',
   specific: {
-    repositoryUrl: 'https://github.com/darragh-hayes/sudc-history/tree/update_dockerfile.git',
+    repositoryUrl: 'https://github.com/darragh-hayes/sudc-history.git',
     execute: {
       args: '-p 9003:9003 -d',
       exec: '/usr/bin/node /srv/hist-srv.js'

@@ -11,15 +11,13 @@
     {
       "type": "docker",
       "specific": {
-        "repositoryUrl": "git@github.com:nearform/sudc-doc.git",
-        "buildScript": "build.sh",
+        "repositoryUrl": "https://github.com/kamil-mech/sudc-doc.git",
         "execute": {
           "args": "-p 9002:9002 -d",
           "exec": "/usr/bin/node /srv/doc-srv.js"
         },
-        "buildHead": 4,
-        "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/doc-3",
-        "dockerImageId": "19279ac8130e9148bce4ac406e59eec215fa0cee5d4aa88299510c51c7f3269c"
+        "buildHead": 5,
+        "dockerImageId": "e9291b0afbf97d9bbef903684a3d451fcdef3d7f22be64d478e78c4d4cc75cf7"
       },
       "id": "doc",
       "name": "doc",
@@ -28,10 +26,9 @@
     {
       "type": "docker",
       "specific": {
-        "repositoryUrl": "git@github.com:nearform/sudc-history.git",
-        "buildScript": "build.sh",
+        "repositoryUrl": "https://github.com/darragh-hayes/sudc-history/tree/update_dockerfile.git",
         "execute": {
-          "args": "-p 9000:9000 -d",
+          "args": "-p 9003:9003 -d",
           "exec": "/usr/bin/node /srv/hist-srv.js"
         },
         "buildHead": 2,
@@ -39,14 +36,12 @@
         "dockerImageId": "ffd8a6a135bdf9f8b3f783be61f1b29f54391af9e53295aa194a21abfc29c419"
       },
       "id": "hist",
-      "name": "hist",
-      "version": "0.0.0"
+      "name": "hist"
     },
     {
       "type": "docker",
       "specific": {
-        "repositoryUrl": "git@github.com:nearform/sudc-realtime.git",
-        "buildScript": "build.sh",
+        "repositoryUrl": "https://github.com/darragh-hayes/sudc-realtime/tree/update_dockerfile.git",
         "execute": {
           "args": "-p 9001:9001 -d",
           "exec": "/usr/bin/node /srv/real-srv.js"
@@ -56,21 +51,18 @@
         "dockerImageId": "3d8943bbd715b253d288d3da06fa98cc1d2582fa9064fbd63455c7aa31f71472"
       },
       "id": "real",
-      "name": "real",
-      "version": "0.0.0"
+      "name": "real"
     },
     {
       "type": "docker",
       "specific": {
-        "repositoryUrl": "git@github.com:nearform/sudc-web.git",
-        "buildScript": "build.sh",
+        "repositoryUrl": "https://github.com/darragh-hayes/sudc-web.git",
         "execute": {
           "args": "-p 8000:8000 -d",
           "exec": "/bin/bash /web/run.sh"
         },
-        "buildHead": 2,
-        "binary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/web-1",
-        "dockerImageId": "493cd7b5579ee54dbfa5a50364add2d0b11532c0a1ab7870f23b2d10e967f2b0"
+        "buildHead": 3,
+        "dockerImageId": "249a92296f18fac3c59424a670ea2f27d3ceccdd0f48f1f4cf968a7de88c1096"
       },
       "id": "web",
       "name": "web",
@@ -85,34 +77,25 @@
         "containerDefinitionId": "root",
         "type": "blank-container",
         "contains": [
-          "493bd1fb-871c-4ec0-a796-871c173f7211",
-          "2a162b04-f176-48bf-bfa1-d1039b76d0c5",
-          "5acdd38e-03d3-4ec0-abd0-cbebb0fa6daa",
-          "fe197c07-d04b-4678-8749-d605e744fa83"
+          "9d9f78a2-3dc7-4628-95b6-557b64be800e",
+          "hist-b418a1b8",
+          "real-2d11f002",
+          "9461587c-a0cb-4833-a132-2711db3335bc"
         ],
         "specific": {}
       },
-      "493bd1fb-871c-4ec0-a796-871c173f7211": {
-        "id": "493bd1fb-871c-4ec0-a796-871c173f7211",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "doc",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "19279ac8130e9148bce4ac406e59eec215fa0cee5d4aa88299510c51c7f3269c",
-          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/doc-3",
-          "dockerLocalTag": "sudc/doc-3",
-          "buildNumber": 3,
-          "version": "0.0.0"
-        }
-      },
-      "2a162b04-f176-48bf-bfa1-d1039b76d0c5": {
-        "id": "2a162b04-f176-48bf-bfa1-d1039b76d0c5",
+      "hist-b418a1b8": {
+        "id": "hist-b418a1b8",
         "containedBy": "root-16f4f95b",
         "containerDefinitionId": "hist",
         "type": "docker",
         "contains": [],
         "specific": {
+          "repositoryUrl": "https://github.com/darragh-hayes/sudc-history/tree/update_dockerfile.git",
+          "execute": {
+            "args": "-p 9003:9003 -d",
+            "exec": "/usr/bin/node /srv/hist-srv.js"
+          },
           "dockerImageId": "ffd8a6a135bdf9f8b3f783be61f1b29f54391af9e53295aa194a21abfc29c419",
           "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/hist-1",
           "dockerLocalTag": "sudc/hist-1",
@@ -120,13 +103,18 @@
           "version": "0.0.0"
         }
       },
-      "5acdd38e-03d3-4ec0-abd0-cbebb0fa6daa": {
-        "id": "5acdd38e-03d3-4ec0-abd0-cbebb0fa6daa",
+      "real-2d11f002": {
+        "id": "real-2d11f002",
         "containedBy": "root-16f4f95b",
         "containerDefinitionId": "real",
         "type": "docker",
         "contains": [],
         "specific": {
+          "repositoryUrl": "https://github.com/darragh-hayes/sudc-realtime/tree/update_dockerfile.git",
+          "execute": {
+            "args": "-p 9001:9001 -d",
+            "exec": "/usr/bin/node /srv/real-srv.js"
+          },
           "dockerImageId": "3d8943bbd715b253d288d3da06fa98cc1d2582fa9064fbd63455c7aa31f71472",
           "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/real-2",
           "dockerLocalTag": "sudc/real-2",
@@ -134,17 +122,29 @@
           "version": "0.0.0"
         }
       },
-      "fe197c07-d04b-4678-8749-d605e744fa83": {
-        "id": "fe197c07-d04b-4678-8749-d605e744fa83",
+      "9d9f78a2-3dc7-4628-95b6-557b64be800e": {
+        "id": "9d9f78a2-3dc7-4628-95b6-557b64be800e",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "doc",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "e9291b0afbf97d9bbef903684a3d451fcdef3d7f22be64d478e78c4d4cc75cf7",
+          "dockerLocalTag": "localhost:8011/sudc/doc-4",
+          "buildNumber": 4,
+          "version": "0.0.0"
+        }
+      },
+      "9461587c-a0cb-4833-a132-2711db3335bc": {
+        "id": "9461587c-a0cb-4833-a132-2711db3335bc",
         "containedBy": "root-16f4f95b",
         "containerDefinitionId": "web",
         "type": "docker",
         "contains": [],
         "specific": {
-          "dockerImageId": "493cd7b5579ee54dbfa5a50364add2d0b11532c0a1ab7870f23b2d10e967f2b0",
-          "containerBinary": "/Users/pelger/work/nearform/code/product/nscale/examples/sudc/sudc-system/builds/web-1",
-          "dockerLocalTag": "sudc/web-1",
-          "buildNumber": 1,
+          "dockerImageId": "249a92296f18fac3c59424a670ea2f27d3ceccdd0f48f1f4cf968a7de88c1096",
+          "dockerLocalTag": "localhost:8011/sudc/web-2",
+          "buildNumber": 2,
           "version": "0.0.0"
         }
       }
