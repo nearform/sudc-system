@@ -20,13 +20,12 @@
         "dockerImageId": "e9291b0afbf97d9bbef903684a3d451fcdef3d7f22be64d478e78c4d4cc75cf7"
       },
       "id": "doc",
-      "name": "doc",
-      "version": "0.0.0"
+      "name": "doc"
     },
     {
       "type": "docker",
       "specific": {
-        "repositoryUrl": "https://github.com/darragh-hayes/sudc-history/tree/update_dockerfile.git",
+        "repositoryUrl": "https://github.com/darragh-hayes/sudc-history.git",
         "execute": {
           "args": "-p 9003:9003 -d",
           "exec": "/usr/bin/node /srv/hist-srv.js"
@@ -41,7 +40,7 @@
     {
       "type": "docker",
       "specific": {
-        "repositoryUrl": "https://github.com/darragh-hayes/sudc-realtime/tree/update_dockerfile.git",
+        "repositoryUrl": "https://github.com/darragh-hayes/sudc-realtime.git",
         "execute": {
           "args": "-p 9001:9001 -d",
           "exec": "/usr/bin/node /srv/real-srv.js"
@@ -65,8 +64,7 @@
         "dockerImageId": "249a92296f18fac3c59424a670ea2f27d3ceccdd0f48f1f4cf968a7de88c1096"
       },
       "id": "web",
-      "name": "web",
-      "version": "0.0.0"
+      "name": "web"
     }
   ],
   "topology": {
@@ -77,12 +75,30 @@
         "containerDefinitionId": "root",
         "type": "blank-container",
         "contains": [
-          "9d9f78a2-3dc7-4628-95b6-557b64be800e",
+          "doc-c31f912e",
           "hist-b418a1b8",
           "real-2d11f002",
-          "9461587c-a0cb-4833-a132-2711db3335bc"
+          "web-5a16c094"
         ],
         "specific": {}
+      },
+      "doc-c31f912e": {
+        "id": "doc-c31f912e",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "doc",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "https://github.com/kamil-mech/sudc-doc.git",
+          "execute": {
+            "args": "-p 9002:9002 -d",
+            "exec": "/usr/bin/node /srv/doc-srv.js"
+          },
+          "dockerImageId": "e9291b0afbf97d9bbef903684a3d451fcdef3d7f22be64d478e78c4d4cc75cf7",
+          "dockerLocalTag": "localhost:8011/sudc/doc-4",
+          "buildNumber": 4,
+          "version": "0.0.0"
+        }
       },
       "hist-b418a1b8": {
         "id": "hist-b418a1b8",
@@ -91,7 +107,7 @@
         "type": "docker",
         "contains": [],
         "specific": {
-          "repositoryUrl": "https://github.com/darragh-hayes/sudc-history/tree/update_dockerfile.git",
+          "repositoryUrl": "https://github.com/darragh-hayes/sudc-history.git",
           "execute": {
             "args": "-p 9003:9003 -d",
             "exec": "/usr/bin/node /srv/hist-srv.js"
@@ -110,7 +126,7 @@
         "type": "docker",
         "contains": [],
         "specific": {
-          "repositoryUrl": "https://github.com/darragh-hayes/sudc-realtime/tree/update_dockerfile.git",
+          "repositoryUrl": "https://github.com/darragh-hayes/sudc-realtime.git",
           "execute": {
             "args": "-p 9001:9001 -d",
             "exec": "/usr/bin/node /srv/real-srv.js"
@@ -122,26 +138,18 @@
           "version": "0.0.0"
         }
       },
-      "9d9f78a2-3dc7-4628-95b6-557b64be800e": {
-        "id": "9d9f78a2-3dc7-4628-95b6-557b64be800e",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "doc",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "dockerImageId": "e9291b0afbf97d9bbef903684a3d451fcdef3d7f22be64d478e78c4d4cc75cf7",
-          "dockerLocalTag": "localhost:8011/sudc/doc-4",
-          "buildNumber": 4,
-          "version": "0.0.0"
-        }
-      },
-      "9461587c-a0cb-4833-a132-2711db3335bc": {
-        "id": "9461587c-a0cb-4833-a132-2711db3335bc",
+      "web-5a16c094": {
+        "id": "web-5a16c094",
         "containedBy": "root-16f4f95b",
         "containerDefinitionId": "web",
         "type": "docker",
         "contains": [],
         "specific": {
+          "repositoryUrl": "https://github.com/darragh-hayes/sudc-web.git",
+          "execute": {
+            "args": "-p 8000:8000 -d",
+            "exec": "/bin/bash /web/run.sh"
+          },
           "dockerImageId": "249a92296f18fac3c59424a670ea2f27d3ceccdd0f48f1f4cf968a7de88c1096",
           "dockerLocalTag": "localhost:8011/sudc/web-2",
           "buildNumber": 2,
