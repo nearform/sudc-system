@@ -16,11 +16,12 @@
           "args": "-p 9002:9002 -d",
           "exec": "node /srv/doc-srv.js"
         },
-        "buildHead": 6,
-        "dockerImageId": "62ba1d3eead0a52a97361dda19b3389f03d2af878935acf42dfcb53ed7ffb292"
+        "buildHead": 7,
+        "dockerImageId": "c13c1297c85afb8ac1ff500bb620ebbd4a1afbf49aa57049bb774c45485b816b"
       },
       "id": "doc",
-      "name": "doc"
+      "name": "doc",
+      "version": "0.0.0"
     },
     {
       "type": "docker",
@@ -73,30 +74,12 @@
         "containerDefinitionId": "root",
         "type": "blank-container",
         "contains": [
-          "doc-c31f912e",
+          "1525e8ca-3b05-4d69-9f35-7d67b73fd5e0",
           "hist-b418a1b8",
           "real-2d11f002",
           "web-5a16c094"
         ],
         "specific": {}
-      },
-      "doc-c31f912e": {
-        "id": "doc-c31f912e",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "doc",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "repositoryUrl": "https://github.com/kamil-mech/sudc-doc.git",
-          "execute": {
-            "args": "-p 9002:9002 -d",
-            "exec": "node /srv/doc-srv.js"
-          },
-          "dockerImageId": "62ba1d3eead0a52a97361dda19b3389f03d2af878935acf42dfcb53ed7ffb292",
-          "dockerLocalTag": "localhost:8011/sudc/doc-5",
-          "buildNumber": 5,
-          "version": "0.0.0"
-        }
       },
       "hist-b418a1b8": {
         "id": "hist-b418a1b8",
@@ -149,6 +132,19 @@
           "dockerImageId": "95a5384832f82068d31a7bcbc54390885b65c3b1e0e4df56254f94f18b1b7517",
           "dockerLocalTag": "localhost:8011/sudc/web-3",
           "buildNumber": 3,
+          "version": "0.0.0"
+        }
+      },
+      "1525e8ca-3b05-4d69-9f35-7d67b73fd5e0": {
+        "id": "1525e8ca-3b05-4d69-9f35-7d67b73fd5e0",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "doc",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "c13c1297c85afb8ac1ff500bb620ebbd4a1afbf49aa57049bb774c45485b816b",
+          "dockerLocalTag": "localhost:8011/sudc/doc-6",
+          "buildNumber": 6,
           "version": "0.0.0"
         }
       }
