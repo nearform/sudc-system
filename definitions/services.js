@@ -17,7 +17,7 @@ exports.doc = {
 exports.hist = {
   type: 'process',
   specific: {
-    repositoryUrl: 'https://github.com/nearform/sudc-real.git',
+    repositoryUrl: 'https://github.com/nearform/sudc-history.git',
     execute: {
       args: '-p 9003:9003 -d',
       exec: 'node /srv/hist-srv.js'
@@ -28,7 +28,7 @@ exports.hist = {
 exports.real = {
   type: 'process',
   specific: {
-    repositoryUrl: 'https://github.com/nearform/sudc-history.git',
+    repositoryUrl: 'https://github.com/nearform/sudc-real.git',
     execute: {
       args: '-p 9001:9001 -d',
       exec: 'node /srv/real-srv.js'
