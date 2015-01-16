@@ -28,7 +28,7 @@ exports.hist = {
 exports.real = {
   type: 'process',
   specific: {
-    repositoryUrl: 'https://github.com/darragh-hayes/sudc-realtime/tree/update_dockerfile.git',
+    repositoryUrl: 'https://github.com/darragh-hayes/sudc-realtime.git',
     execute: {
       args: '-p 9001:9001 -d',
       exec: '/usr/bin/node /srv/real-srv.js'
