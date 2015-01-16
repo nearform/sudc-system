@@ -5,7 +5,7 @@ exports.root = {
 exports.doc = {
   type: 'process',
   specific: {
-    repositoryUrl: 'https://github.com/kamil-mech/sudc-doc.git',
+    repositoryUrl: 'https://github.com/nearform/sudc-doc.git',
     execute: {
       args: '-p 9002:9002 -d',
       exec: 'node /srv/doc-srv.js'
@@ -17,7 +17,7 @@ exports.doc = {
 exports.hist = {
   type: 'process',
   specific: {
-    repositoryUrl: 'https://github.com/darragh-hayes/sudc-history.git',
+    repositoryUrl: 'https://github.com/nearform/sudc-history.git',
     execute: {
       args: '-p 9003:9003 -d',
       exec: 'node /srv/hist-srv.js'
@@ -28,7 +28,7 @@ exports.hist = {
 exports.real = {
   type: 'process',
   specific: {
-    repositoryUrl: 'https://github.com/darragh-hayes/sudc-realtime.git',
+    repositoryUrl: 'https://github.com/nearform/sudc-history.git',
     execute: {
       args: '-p 9001:9001 -d',
       exec: 'node /srv/real-srv.js'
