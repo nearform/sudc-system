@@ -8,7 +8,7 @@ exports.doc = {
     repositoryUrl: 'https://github.com/kamil-mech/sudc-doc.git',
     execute: {
       args: '-p 9002:9002 -d',
-      exec: '/usr/bin/node /srv/doc-srv.js'
+      exec: 'node /srv/doc-srv.js'
     }
   }
 };
@@ -20,7 +20,7 @@ exports.hist = {
     repositoryUrl: 'https://github.com/darragh-hayes/sudc-history.git',
     execute: {
       args: '-p 9003:9003 -d',
-      exec: '/usr/bin/node /srv/hist-srv.js'
+      exec: 'node /srv/hist-srv.js'
     }
   }
 };
@@ -31,7 +31,7 @@ exports.real = {
     repositoryUrl: 'https://github.com/darragh-hayes/sudc-realtime.git',
     execute: {
       args: '-p 9001:9001 -d',
-      exec: '/usr/bin/node /srv/real-srv.js'
+      exec: 'node /srv/real-srv.js'
     }
   }
 };
