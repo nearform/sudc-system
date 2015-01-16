@@ -61,11 +61,12 @@
           "args": "-p 8000:8000 -d",
           "exec": "/bin/bash /web/run.sh"
         },
-        "buildHead": 3,
-        "dockerImageId": "249a92296f18fac3c59424a670ea2f27d3ceccdd0f48f1f4cf968a7de88c1096"
+        "buildHead": 4,
+        "dockerImageId": "95a5384832f82068d31a7bcbc54390885b65c3b1e0e4df56254f94f18b1b7517"
       },
       "id": "web",
-      "name": "web"
+      "name": "web",
+      "version": "0.0.0"
     }
   ],
   "topology": {
@@ -79,27 +80,9 @@
           "8850921f-0872-4a3b-b174-46e0ed69f093",
           "28acc11a-f389-493a-84cf-7aeb62850a6d",
           "e23ed2e7-15b7-43d9-b0c2-9b1931ff5d40",
-          "web-5a16c094"
+          "52d0d2ec-89c9-4b11-904c-b5491183d899"
         ],
         "specific": {}
-      },
-      "web-5a16c094": {
-        "id": "web-5a16c094",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "web",
-        "type": "docker",
-        "contains": [],
-        "specific": {
-          "repositoryUrl": "https://github.com/darragh-hayes/sudc-web.git",
-          "execute": {
-            "args": "-p 8000:8000 -d",
-            "exec": "/bin/bash /web/run.sh"
-          },
-          "dockerImageId": "249a92296f18fac3c59424a670ea2f27d3ceccdd0f48f1f4cf968a7de88c1096",
-          "dockerLocalTag": "localhost:8011/sudc/web-2",
-          "buildNumber": 2,
-          "version": "0.0.0"
-        }
       },
       "8850921f-0872-4a3b-b174-46e0ed69f093": {
         "id": "8850921f-0872-4a3b-b174-46e0ed69f093",
@@ -136,6 +119,19 @@
         "specific": {
           "dockerImageId": "0b8d6ec98ab45beaafd2ed188e2add9f58784ee87ac43bb4185f3d082390b345",
           "dockerLocalTag": "localhost:8011/sudc/real-3",
+          "buildNumber": 3,
+          "version": "0.0.0"
+        }
+      },
+      "52d0d2ec-89c9-4b11-904c-b5491183d899": {
+        "id": "52d0d2ec-89c9-4b11-904c-b5491183d899",
+        "containedBy": "root-16f4f95b",
+        "containerDefinitionId": "web",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "dockerImageId": "95a5384832f82068d31a7bcbc54390885b65c3b1e0e4df56254f94f18b1b7517",
+          "dockerLocalTag": "localhost:8011/sudc/web-3",
           "buildNumber": 3,
           "version": "0.0.0"
         }
