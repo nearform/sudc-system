@@ -1,9 +1,9 @@
 exports.root = {
-  type: 'container'
+  type: 'blank-container'
 };
 
 exports.doc = {
-  type: 'process',
+  type: 'docker',
   specific: {
     repositoryUrl: 'https://github.com/nearform/sudc-doc.git',
     execute: {
@@ -15,7 +15,7 @@ exports.doc = {
 
 
 exports.hist = {
-  type: 'process',
+  type: 'docker',
   specific: {
     repositoryUrl: 'https://github.com/nearform/sudc-history.git',
     execute: {
@@ -26,7 +26,7 @@ exports.hist = {
 };
 
 exports.real = {
-  type: 'process',
+  type: 'docker',
   specific: {
     repositoryUrl: 'https://github.com/nearform/sudc-realtime.git',
     execute: {
@@ -37,7 +37,7 @@ exports.real = {
 };
 
 exports.web = {
-  type: 'process',
+  type: 'docker',
   specific: {
     repositoryUrl: 'https://github.com/nearform/sudc-web.git',
     execute: {
