@@ -5,137 +5,530 @@
   "containerDefinitions": [
     {
       "type": "blank-container",
+      "id": "awsRoot",
+      "name": "awsRoot"
+    },
+    {
+      "type": "aws-elb",
+      "specific": {
+        "LoadBalancerName": "webElb",
+        "Listeners": [
+          {
+            "Protocol": "HTTP",
+            "LoadBalancerPort": 80,
+            "InstanceProtocol": "HTTP",
+            "InstancePort": 8000
+          }
+        ],
+        "AvailabilityZones": [
+          "us-west-2a"
+        ],
+        "Subnets": [
+          "subnet-838e7ef4"
+        ]
+      },
+      "id": "awsWebElb",
+      "name": "awsWebElb"
+    },
+    {
+      "type": "aws-sg",
+      "specific": {
+        "GroupName": "webSg",
+        "Description": "Web security group",
+        "IpPermissions": [
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 3000,
+            "ToPort": 3000,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 22,
+            "ToPort": 22,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 9002,
+            "ToPort": 9002,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 873,
+            "ToPort": 873,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "10.0.0.0/8"
+              }
+            ]
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 9001,
+            "ToPort": 9001,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 9000,
+            "ToPort": 9000,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          },
+          {
+            "IpProtocol": "tcp",
+            "FromPort": 8000,
+            "ToPort": 8000,
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          }
+        ],
+        "IpPermissionsEgress": [
+          {
+            "IpProtocol": "-1",
+            "UserIdGroupPairs": [],
+            "IpRanges": [
+              {
+                "CidrIp": "0.0.0.0/0"
+              }
+            ]
+          }
+        ],
+        "VpcId": "vpc-bfbf79da",
+        "Tags": []
+      },
+      "id": "awsWebSg",
+      "name": "awsWebSg"
+    },
+    {
+      "type": "aws-ami",
+      "name": "demo2",
+      "specific": {
+        "ImageId": "ami-cf0741ff",
+        "imageId": "ami-cf0741ff",
+        "instanceId": "i-e53bc2e9",
+        "publicIpAddress": "54.191.244.183",
+        "privateIpAddress": "172.30.0.205",
+        "securityGroups": [
+          {
+            "GroupName": "webSg",
+            "GroupId": "sg-bb9ff3de"
+          }
+        ],
+        "tags": [
+          {
+            "Key": "nscale-system",
+            "Value": "sudc-system"
+          }
+        ]
+      },
+      "id": "awsMachine"
+    },
+    {
+      "type": "blank-container",
       "id": "root",
       "name": "root"
     },
     {
       "type": "docker",
       "specific": {
-        "repositoryUrl": "https://github.com/kamil-mech/sudc-doc.git",
+        "repositoryUrl": "git@github.com:nearform/sudc-doc.git",
+        "buildScript": "build.sh",
         "execute": {
           "args": "-p 9002:9002 -d",
-          "exec": "node /srv/doc-srv.js"
+          "exec": "/usr/bin/node /srv/doc-srv.js"
         },
+        "dockerImageId": "1a851064660f366558995aa18b93c2e6ea82eefe2bdd1104b9372abdad596f55",
+        "containerBinary": "/home/ubuntu/work/sudc-system/builds/doc-6",
+        "dockerLocalTag": "sudc/doc-6",
+        "buildNumber": 6,
+        "version": "0.0.0",
         "buildHead": 7,
-        "dockerImageId": "c13c1297c85afb8ac1ff500bb620ebbd4a1afbf49aa57049bb774c45485b816b"
+        "binary": "/home/ubuntu/work/sudc-system/builds/doc-6"
       },
       "id": "doc",
-      "name": "doc",
-      "version": "0.0.0"
+      "name": "doc"
     },
     {
       "type": "docker",
       "specific": {
-        "repositoryUrl": "https://github.com/darragh-hayes/sudc-history.git",
+        "repositoryUrl": "git@github.com:nearform/sudc-history.git",
+        "buildScript": "build.sh",
         "execute": {
-          "args": "-p 9003:9003 -d",
-          "exec": "node /srv/hist-srv.js"
+          "args": "-p 9000:9000 -d",
+          "exec": "/usr/bin/node /srv/hist-srv.js"
         },
+        "dockerImageId": "155c54fdb350de24d83b42ddb4b56e1d068131a8a945a7471957cebf831dce03",
+        "containerBinary": "/home/ubuntu/work/sudc-system/builds/hist-3",
+        "dockerLocalTag": "sudc/hist-3",
+        "buildNumber": 3,
+        "version": "0.0.0",
         "buildHead": 4,
-        "dockerImageId": "7f3b1888a830c5e263c754cfcb71c227f3c9c13c79c6a694a145f661f982aac6"
+        "binary": "/home/ubuntu/work/sudc-system/builds/hist-3"
       },
       "id": "hist",
-      "name": "hist",
-      "version": "0.0.0"
+      "name": "hist"
     },
     {
       "type": "docker",
       "specific": {
-        "repositoryUrl": "https://github.com/darragh-hayes/sudc-realtime.git",
+        "repositoryUrl": "git@github.com:nearform/sudc-realtime.git",
+        "buildScript": "build.sh",
         "execute": {
           "args": "-p 9001:9001 -d",
-          "exec": "node /srv/real-srv.js"
+          "exec": "/usr/bin/node /srv/real-srv.js"
         },
+        "dockerImageId": "9ecfdea3a9adc0fae0cfbf289f5edf7d4397f9cb482d3677faf228ed6c211c29",
+        "containerBinary": "/home/ubuntu/work/sudc-system/builds/real-4",
+        "dockerLocalTag": "sudc/real-4",
+        "buildNumber": 4,
+        "version": "0.0.0",
         "buildHead": 5,
-        "dockerImageId": "d4de65ef2f52b1ee654b0bfbf628f17b8dbc7f041104a9a2fbfd550b574040f0"
+        "binary": "/home/ubuntu/work/sudc-system/builds/real-4"
       },
       "id": "real",
-      "name": "real",
-      "version": "0.0.0"
+      "name": "real"
     },
     {
       "type": "docker",
       "specific": {
-        "repositoryUrl": "https://github.com/darragh-hayes/sudc-web.git",
+        "repositoryUrl": "git@github.com:nearform/sudc-web.git",
+        "buildScript": "build.sh",
         "execute": {
           "args": "-p 8000:8000 -d",
           "exec": "/bin/bash /web/run.sh"
         },
-        "buildHead": 5,
-        "dockerImageId": "b888e2b18bfd86173db4333a7fec40a925c2a32f139b247b924fcc791cffc991"
+        "dockerImageId": "425aa0aedf790c3a34c8a545389c04d9556f31f2dccd9ab53b4af87bc1f10b55",
+        "containerBinary": "/home/ubuntu/work/sudc-system/builds/web-3",
+        "dockerLocalTag": "sudc/web-3",
+        "buildNumber": 3,
+        "version": "0.0.0",
+        "buildHead": 4,
+        "binary": "/home/ubuntu/work/sudc-system/builds/web-3"
       },
       "id": "web",
-      "name": "web",
-      "version": "0.0.0"
+      "name": "web"
     }
   ],
   "topology": {
     "containers": {
-      "root-16f4f95b": {
-        "id": "root-16f4f95b",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "root",
-        "type": "blank-container",
+      "awsWebElb-1bd74778": {
+        "id": "awsWebElb-1bd74778",
+        "containedBy": "awsWebElb-1bd74778",
+        "containerDefinitionId": "awsWebElb",
+        "type": "aws-elb",
         "contains": [
-          "1525e8ca-3b05-4d69-9f35-7d67b73fd5e0",
-          "ebd5232d-1454-4b15-9b5e-6e9a9f305743",
-          "26a8b7ee-b7c5-4fe6-829a-68a472ee7204",
-          "64ef5fe4-913f-47ac-8c80-114dbdaa7964"
+          "awsWebSg-b5e731b6"
         ],
-        "specific": {}
-      },
-      "1525e8ca-3b05-4d69-9f35-7d67b73fd5e0": {
-        "id": "1525e8ca-3b05-4d69-9f35-7d67b73fd5e0",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "doc",
-        "type": "docker",
-        "contains": [],
         "specific": {
-          "dockerImageId": "c13c1297c85afb8ac1ff500bb620ebbd4a1afbf49aa57049bb774c45485b816b",
-          "dockerLocalTag": "localhost:8011/sudc/doc-6",
-          "buildNumber": 6,
-          "version": "0.0.0"
-        }
+          "LoadBalancerName": "webElb",
+          "Listeners": [
+            {
+              "Protocol": "HTTP",
+              "LoadBalancerPort": 80,
+              "InstanceProtocol": "HTTP",
+              "InstancePort": 8000
+            }
+          ],
+          "AvailabilityZones": [
+            "us-west-2a"
+          ],
+          "Subnets": [
+            "subnet-838e7ef4"
+          ]
+        },
+        "nativeId": "webElb-1563314154.us-west-2.elb.amazonaws.com"
       },
-      "ebd5232d-1454-4b15-9b5e-6e9a9f305743": {
-        "id": "ebd5232d-1454-4b15-9b5e-6e9a9f305743",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "hist",
-        "type": "docker",
-        "contains": [],
+      "awsWebSg-b5e731b6": {
+        "id": "awsWebSg-b5e731b6",
+        "containedBy": "awsWebElb-1bd74778",
+        "containerDefinitionId": "awsWebSg",
+        "type": "aws-sg",
+        "contains": [
+          "awsMachine-9f586a08",
+          "awsMachine-4fd2667"
+        ],
         "specific": {
-          "dockerImageId": "7f3b1888a830c5e263c754cfcb71c227f3c9c13c79c6a694a145f661f982aac6",
-          "dockerLocalTag": "localhost:8011/sudc/hist-3",
-          "buildNumber": 3,
-          "version": "0.0.0"
-        }
+          "GroupName": "webSg",
+          "Description": "Web security group",
+          "IpPermissions": [
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 3000,
+              "ToPort": 3000,
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            },
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 22,
+              "ToPort": 22,
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            },
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 9002,
+              "ToPort": 9002,
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            },
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 873,
+              "ToPort": 873,
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "10.0.0.0/8"
+                }
+              ]
+            },
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 9001,
+              "ToPort": 9001,
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            },
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 9000,
+              "ToPort": 9000,
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            },
+            {
+              "IpProtocol": "tcp",
+              "FromPort": 8000,
+              "ToPort": 8000,
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            }
+          ],
+          "IpPermissionsEgress": [
+            {
+              "IpProtocol": "-1",
+              "UserIdGroupPairs": [],
+              "IpRanges": [
+                {
+                  "CidrIp": "0.0.0.0/0"
+                }
+              ]
+            }
+          ],
+          "VpcId": "vpc-bfbf79da",
+          "Tags": []
+        },
+        "nativeId": "sg-c06f00a5"
       },
-      "26a8b7ee-b7c5-4fe6-829a-68a472ee7204": {
-        "id": "26a8b7ee-b7c5-4fe6-829a-68a472ee7204",
-        "containedBy": "root-16f4f95b",
-        "containerDefinitionId": "real",
-        "type": "docker",
-        "contains": [],
+      "awsMachine-9f586a08": {
+        "id": "awsMachine-9f586a08",
+        "containedBy": "awsWebSg-b5e731b6",
+        "containerDefinitionId": "awsMachine",
+        "type": "aws-ami",
+        "contains": [
+          "web-3b8fd4eb"
+        ],
         "specific": {
-          "dockerImageId": "d4de65ef2f52b1ee654b0bfbf628f17b8dbc7f041104a9a2fbfd550b574040f0",
-          "dockerLocalTag": "localhost:8011/sudc/real-4",
-          "buildNumber": 4,
-          "version": "0.0.0"
-        }
+          "imageId": "ami-cf0741ff",
+          "instanceId": "i-919e659d",
+          "publicIpAddress": "54.69.107.137",
+          "privateIpAddress": "172.30.0.234",
+          "securityGroups": [
+            {
+              "GroupName": "webSg",
+              "GroupId": "sg-c06f00a5"
+            }
+          ],
+          "tags": [
+            {
+              "Key": "Name",
+              "Value": "demo2"
+            },
+            {
+              "Key": "nscale-system",
+              "Value": "sudc-system"
+            }
+          ]
+        },
+        "nativeId": "i-919e659d"
       },
-      "64ef5fe4-913f-47ac-8c80-114dbdaa7964": {
-        "id": "64ef5fe4-913f-47ac-8c80-114dbdaa7964",
-        "containedBy": "root-16f4f95b",
+      "web-3b8fd4eb": {
+        "id": "web-3b8fd4eb",
+        "containedBy": "awsMachine-9f586a08",
         "containerDefinitionId": "web",
         "type": "docker",
         "contains": [],
         "specific": {
-          "dockerImageId": "b888e2b18bfd86173db4333a7fec40a925c2a32f139b247b924fcc791cffc991",
-          "dockerLocalTag": "localhost:8011/sudc/web-4",
+          "repositoryUrl": "git@github.com:nearform/sudc-web.git",
+          "buildScript": "build.sh",
+          "execute": {
+            "args": "-p 8000:8000 -d",
+            "exec": "/bin/bash /web/run.sh"
+          },
+          "dockerImageId": "425aa0aedf790c3a34c8a545389c04d9556f31f2dccd9ab53b4af87bc1f10b55",
+          "containerBinary": "/home/ubuntu/work/sudc-system/builds/web-3",
+          "dockerLocalTag": "sudc/web-3",
+          "buildNumber": 3,
+          "version": "0.0.0",
+          "buildHead": 4,
+          "binary": "/home/ubuntu/work/sudc-system/builds/web-3"
+        }
+      },
+      "awsMachine-4fd2667": {
+        "id": "awsMachine-4fd2667",
+        "containedBy": "awsWebSg-b5e731b6",
+        "containerDefinitionId": "awsMachine",
+        "type": "aws-ami",
+        "contains": [
+          "doc-a680359d",
+          "hist-d187050b",
+          "real-488e54b1"
+        ],
+        "specific": {
+          "ImageId": "ami-cf0741ff",
+          "imageId": "ami-cf0741ff",
+          "instanceId": "i-e53bc2e9",
+          "publicIpAddress": "54.191.244.183",
+          "privateIpAddress": "172.30.0.205",
+          "securityGroups": [
+            {
+              "GroupName": "webSg",
+              "GroupId": "sg-bb9ff3de"
+            }
+          ],
+          "tags": [
+            {
+              "Key": "nscale-system",
+              "Value": "sudc-system"
+            }
+          ]
+        },
+        "nativeId": "i-e53bc2e9"
+      },
+      "doc-a680359d": {
+        "id": "doc-a680359d",
+        "containedBy": "awsMachine-4fd2667",
+        "containerDefinitionId": "doc",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "git@github.com:nearform/sudc-doc.git",
+          "buildScript": "build.sh",
+          "execute": {
+            "args": "-p 9002:9002 -d",
+            "exec": "/usr/bin/node /srv/doc-srv.js"
+          },
+          "dockerImageId": "1a851064660f366558995aa18b93c2e6ea82eefe2bdd1104b9372abdad596f55",
+          "containerBinary": "/home/ubuntu/work/sudc-system/builds/doc-6",
+          "dockerLocalTag": "sudc/doc-6",
+          "buildNumber": 6,
+          "version": "0.0.0",
+          "buildHead": 7,
+          "binary": "/home/ubuntu/work/sudc-system/builds/doc-6"
+        }
+      },
+      "hist-d187050b": {
+        "id": "hist-d187050b",
+        "containedBy": "awsMachine-4fd2667",
+        "containerDefinitionId": "hist",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "git@github.com:nearform/sudc-history.git",
+          "buildScript": "build.sh",
+          "execute": {
+            "args": "-p 9000:9000 -d",
+            "exec": "/usr/bin/node /srv/hist-srv.js"
+          },
+          "dockerImageId": "155c54fdb350de24d83b42ddb4b56e1d068131a8a945a7471957cebf831dce03",
+          "containerBinary": "/home/ubuntu/work/sudc-system/builds/hist-3",
+          "dockerLocalTag": "sudc/hist-3",
+          "buildNumber": 3,
+          "version": "0.0.0",
+          "buildHead": 4,
+          "binary": "/home/ubuntu/work/sudc-system/builds/hist-3"
+        }
+      },
+      "real-488e54b1": {
+        "id": "real-488e54b1",
+        "containedBy": "awsMachine-4fd2667",
+        "containerDefinitionId": "real",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "git@github.com:nearform/sudc-realtime.git",
+          "buildScript": "build.sh",
+          "execute": {
+            "args": "-p 9001:9001 -d",
+            "exec": "/usr/bin/node /srv/real-srv.js"
+          },
+          "dockerImageId": "9ecfdea3a9adc0fae0cfbf289f5edf7d4397f9cb482d3677faf228ed6c211c29",
+          "containerBinary": "/home/ubuntu/work/sudc-system/builds/real-4",
+          "dockerLocalTag": "sudc/real-4",
           "buildNumber": 4,
-          "version": "0.0.0"
+          "version": "0.0.0",
+          "buildHead": 5,
+          "binary": "/home/ubuntu/work/sudc-system/builds/real-4"
         }
       }
     }
-  }
+  },
+  "dirty": false
 }

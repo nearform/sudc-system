@@ -1,3 +1,8 @@
+// infrastructure
+exports.root = {
+  type: 'container'
+};
+
 exports.doc = {
   type: 'process',
   specific: {
