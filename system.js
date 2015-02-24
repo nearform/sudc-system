@@ -14,6 +14,9 @@ exports.topology = {
   },
   development: {
     root: ['doc', 'hist', 'real', 'web']
+  },
+  process: {
+    root: ['docProcess', 'histProcess', 'realProcess', 'webProcess']
   }
 };
 
