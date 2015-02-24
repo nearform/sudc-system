@@ -38,7 +38,7 @@ exports.webProcess = {
     repositoryUrl: 'https://github.com/nearform/sudc-web.git',
     processBuild: 'npm install; cd web; npm install; npm install bower -g; bower install',
     execute: {
-      process: 'index.js',
+      process: './index.js',
       cwd: 'web'
     }
   }

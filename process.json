@@ -53,7 +53,7 @@
         "repositoryUrl": "https://github.com/nearform/sudc-web.git",
         "processBuild": "npm install; cd web; npm install; npm install bower -g; bower install",
         "execute": {
-          "process": "index.js",
+          "process": "./index.js",
           "cwd": "web"
         },
         "commit": "392947a31ae50228176874ba8f1209c5de33d4a7"
@@ -132,7 +132,7 @@
           "repositoryUrl": "https://github.com/nearform/sudc-web.git",
           "processBuild": "npm install; cd web; npm install; npm install bower -g; bower install",
           "execute": {
-            "process": "index.js",
+            "process": "./index.js",
             "cwd": "web"
           },
           "commit": "392947a31ae50228176874ba8f1209c5de33d4a7"
