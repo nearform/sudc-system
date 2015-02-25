@@ -16,7 +16,7 @@ exports.topology = {
     root: ['doc', 'hist', 'real', 'web']
   },
   process: {
-    root: ['docProcess', 'histProcess', 'realProcess', 'webProcess']
+    root: ['doc', 'hist', 'real', 'web']
   }
 };
 

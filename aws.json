@@ -131,9 +131,11 @@
       "type": "docker",
       "specific": {
         "repositoryUrl": "https://github.com/nearform/sudc-doc.git",
+        "processBuild": "npm install",
         "execute": {
           "args": "-p 9002:9002 -d",
-          "exec": "node /srv/doc-srv.js"
+          "exec": "node /srv/doc-srv.js",
+          "process": "srv/doc-srv.js"
         },
         "commit": "77c4014bef47deb4fef3af579f2959457c058ce8"
       },
@@ -144,9 +146,11 @@
       "type": "docker",
       "specific": {
         "repositoryUrl": "https://github.com/nearform/sudc-history.git",
+        "processBuild": "npm install",
         "execute": {
           "args": "-p 9003:9003 -d",
-          "exec": "node /srv/hist-srv.js"
+          "exec": "node /srv/hist-srv.js",
+          "process": "srv/hist-srv.js"
         },
         "commit": "39f0c71b89f3ba78064468c0af79017927f1a6cb"
       },
@@ -157,9 +161,11 @@
       "type": "docker",
       "specific": {
         "repositoryUrl": "https://github.com/nearform/sudc-realtime.git",
+        "processBuild": "npm install",
         "execute": {
           "args": "-p 9001:9001 -d",
-          "exec": "node /srv/real-srv.js"
+          "exec": "node /srv/real-srv.js",
+          "process": "srv/real-srv.js"
         },
         "commit": "5309ad7aeba319fd44adb18bbc983f4587f16af9"
       },
@@ -170,9 +176,12 @@
       "type": "docker",
       "specific": {
         "repositoryUrl": "https://github.com/nearform/sudc-web.git",
+        "processBuild": "npm install; cd web; npm install; npm install bower -g; bower install",
         "execute": {
           "args": "-p 8000:8000 -d",
-          "exec": "/bin/bash /web/run.sh"
+          "exec": "/bin/bash /web/run.sh",
+          "process": "./index.js",
+          "cwd": "web"
         },
         "commit": "392947a31ae50228176874ba8f1209c5de33d4a7"
       },
@@ -341,9 +350,11 @@
         "contains": [],
         "specific": {
           "repositoryUrl": "https://github.com/nearform/sudc-doc.git",
+          "processBuild": "npm install",
           "execute": {
             "args": "-p 9002:9002 -d",
-            "exec": "node /srv/doc-srv.js"
+            "exec": "node /srv/doc-srv.js",
+            "process": "srv/doc-srv.js"
           },
           "commit": "77c4014bef47deb4fef3af579f2959457c058ce8"
         }
@@ -356,9 +367,11 @@
         "contains": [],
         "specific": {
           "repositoryUrl": "https://github.com/nearform/sudc-history.git",
+          "processBuild": "npm install",
           "execute": {
             "args": "-p 9003:9003 -d",
-            "exec": "node /srv/hist-srv.js"
+            "exec": "node /srv/hist-srv.js",
+            "process": "srv/hist-srv.js"
           },
           "commit": "39f0c71b89f3ba78064468c0af79017927f1a6cb"
         }
@@ -371,9 +384,11 @@
         "contains": [],
         "specific": {
           "repositoryUrl": "https://github.com/nearform/sudc-realtime.git",
+          "processBuild": "npm install",
           "execute": {
             "args": "-p 9001:9001 -d",
-            "exec": "node /srv/real-srv.js"
+            "exec": "node /srv/real-srv.js",
+            "process": "srv/real-srv.js"
           },
           "commit": "5309ad7aeba319fd44adb18bbc983f4587f16af9"
         }
@@ -386,9 +401,12 @@
         "contains": [],
         "specific": {
           "repositoryUrl": "https://github.com/nearform/sudc-web.git",
+          "processBuild": "npm install; cd web; npm install; npm install bower -g; bower install",
           "execute": {
             "args": "-p 8000:8000 -d",
-            "exec": "/bin/bash /web/run.sh"
+            "exec": "/bin/bash /web/run.sh",
+            "process": "./index.js",
+            "cwd": "web"
           },
           "commit": "392947a31ae50228176874ba8f1209c5de33d4a7"
         }
