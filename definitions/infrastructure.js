@@ -15,7 +15,6 @@ exports.doc = {
     processBuild: 'npm install',
     execute: {
       args: '-p 9002:9002 -d',
-      exec: 'node /srv/doc-srv.js',
       process: 'srv/doc-srv.js'
     }
   }
@@ -34,7 +33,6 @@ exports.hist = {
     processBuild: 'npm install',
     execute: {
       args: '-p 9003:9003 -d',
-      exec: 'node /srv/hist-srv.js',
       process: 'srv/hist-srv.js'
     }
   }
@@ -52,7 +50,6 @@ exports.real = {
     processBuild: 'npm install',
     execute: {
       args: '-p 9001:9001 -d',
-      exec: 'node /srv/real-srv.js',
       process: 'srv/real-srv.js'
     }
   }
@@ -70,7 +67,6 @@ exports.web = {
     processBuild: 'npm install; cd web; npm install bower; node_modules/.bin/bower install',
     execute: {
       args: '-p 8000:8000 -d',
-      exec: '/bin/bash /web/run.sh',
       process: './index.js',
       cwd: 'web'
     }
