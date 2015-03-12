@@ -17,9 +17,6 @@
         ],
         "AvailabilityZones": [
           "us-west-2a"
-        ],
-        "Subnets": [
-          "subnet-838e7ef4"
         ]
       },
       "id": "awsWebElb",
@@ -113,7 +110,6 @@
             ]
           }
         ],
-        "VpcId": "vpc-bfbf79da",
         "Tags": []
       },
       "id": "awsWebSg",
@@ -207,9 +203,6 @@
           ],
           "AvailabilityZones": [
             "us-west-2a"
-          ],
-          "Subnets": [
-            "subnet-838e7ef4"
           ]
         }
       },
@@ -308,7 +301,6 @@
               ]
             }
           ],
-          "VpcId": "vpc-bfbf79da",
           "Tags": []
         }
       },

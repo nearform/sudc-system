@@ -8,8 +8,7 @@ exports.awsWebElb = {
   specific: {
     LoadBalancerName: 'webElb',
     Listeners: [{Protocol: 'HTTP', LoadBalancerPort: 80, InstanceProtocol: 'HTTP', InstancePort: 8000}],
-    AvailabilityZones: ['us-west-2a'],
-    Subnets: ['subnet-838e7ef4']
+    AvailabilityZones: ['us-west-2a']
   }
 };
 
@@ -29,7 +28,6 @@ exports.awsWebSg = {
     ],
     IpPermissionsEgress: [
       { IpProtocol: '-1', UserIdGroupPairs: [], IpRanges: [ { 'CidrIp': '0.0.0.0/0' } ] } ],
-    VpcId: 'vpc-bfbf79da',
     Tags: []
   }
 };
