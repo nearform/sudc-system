@@ -9,7 +9,7 @@ exports.awsWebElb = {
     LoadBalancerName: 'webElb',
     Listeners: [{Protocol: 'HTTP', LoadBalancerPort: 80, InstanceProtocol: 'HTTP', InstancePort: 8000}],
     AvailabilityZones: ['us-west-2a'],
-    Subnets: ['subnet-xxxxxxxx']
+    Subnets: ['subnet-838e7ef4']
   }
 };
 
@@ -29,7 +29,7 @@ exports.awsWebSg = {
     ],
     IpPermissionsEgress: [
       { IpProtocol: '-1', UserIdGroupPairs: [], IpRanges: [ { 'CidrIp': '0.0.0.0/0' } ] } ],
-    VpcId: 'vpc-xxxxxxxx',
+    VpcId: 'vpc-bfbf79da',
     Tags: []
   }
 };
@@ -38,7 +38,7 @@ exports.awsMachine = {
   type: 'aws-ami',
   name: 'demo2',
   specific: {
-    ImageId: 'ami-xxxxxxxx'
+    ImageId: 'ami-4b90b27b'
   }
 };
 
