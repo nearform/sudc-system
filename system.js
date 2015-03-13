@@ -8,6 +8,8 @@ exports.topology = {
       awsWebSg: [{
         awsMachine: ['web']
       }, {
+        awsMachine: ['web']
+      }, {
         awsMachine: ['doc', 'hist', 'real']
       }]
     }]

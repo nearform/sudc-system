@@ -7,8 +7,7 @@ exports.awsWebElb = {
   type: 'aws-elb',
   specific: {
     LoadBalancerName: 'webElb',
-    Listeners: [{Protocol: 'HTTP', LoadBalancerPort: 80, InstanceProtocol: 'HTTP', InstancePort: 8000}],
-    AvailabilityZones: ['us-west-2a']
+    Listeners: [{Protocol: 'HTTP', LoadBalancerPort: 80, InstanceProtocol: 'HTTP', InstancePort: 8000}]
   }
 };
 
@@ -27,8 +26,7 @@ exports.awsWebSg = {
       { 'IpProtocol': 'tcp', 'FromPort': 8000, 'ToPort': 8000, 'IpRanges': [ { 'CidrIp': '0.0.0.0/0' } ] }
     ],
     IpPermissionsEgress: [
-      { IpProtocol: '-1', UserIdGroupPairs: [], IpRanges: [ { 'CidrIp': '0.0.0.0/0' } ] } ],
-    Tags: []
+      { IpProtocol: '-1', UserIdGroupPairs: [], IpRanges: [ { 'CidrIp': '0.0.0.0/0' } ] } ]
   }
 };
 
