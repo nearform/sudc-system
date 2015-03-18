@@ -44,3 +44,8 @@ exports.awsAutoscaling = {
     ImageId: 'ami-4b90b27b'
   }
 };
+
+exports.awsAMachine = {
+  type: 'blank-container',
+  multiply: true
+};

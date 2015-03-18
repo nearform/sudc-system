@@ -15,7 +15,9 @@ exports.topology = {
   autoscaling: {
     awsWebSg: [{
       awsWebElb: [{
-        awsAutoscaling: ['web', 'doc', 'hist', 'real']
+        awsAutoscaling: {
+          awsAMachine: ['web', 'doc', 'hist', 'real']
+        }
       }]
     }]
   },

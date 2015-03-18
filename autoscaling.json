@@ -120,6 +120,12 @@
       "name": "awsAutoscaling"
     },
     {
+      "type": "blank-container",
+      "multiply": true,
+      "id": "awsAMachine",
+      "name": "awsAMachine"
+    },
+    {
       "type": "docker",
       "specific": {
         "repositoryUrl": "https://github.com/nearform/sudc-doc.git",
@@ -301,18 +307,28 @@
         "containerDefinitionId": "awsAutoscaling",
         "type": "aws-autoscaling",
         "contains": [
-          "doc-84c7229a$77c4014bef47deb4fef3af579f2959457c058ce8",
-          "hist-1dce7320$39f0c71b89f3ba78064468c0af79017927f1a6cb",
-          "real-6ac943b6$5309ad7aeba319fd44adb18bbc983f4587f16af9",
-          "web-f3c0120c$e2021682ad1d25287321a4883535252ba684d9ba"
+          "awsAMachine-92d81d7c"
         ],
         "specific": {
           "ImageId": "ami-4b90b27b"
         }
       },
-      "doc-84c7229a$77c4014bef47deb4fef3af579f2959457c058ce8": {
-        "id": "doc-84c7229a$77c4014bef47deb4fef3af579f2959457c058ce8",
+      "awsAMachine-92d81d7c": {
+        "id": "awsAMachine-92d81d7c",
         "containedBy": "awsAutoscaling-da1fe44a",
+        "containerDefinitionId": "awsAMachine",
+        "type": "blank-container",
+        "contains": [
+          "doc-c9bab190$77c4014bef47deb4fef3af579f2959457c058ce8",
+          "hist-50b3e02a$39f0c71b89f3ba78064468c0af79017927f1a6cb",
+          "real-27b4d0bc$5309ad7aeba319fd44adb18bbc983f4587f16af9",
+          "web-bebd8106$e2021682ad1d25287321a4883535252ba684d9ba"
+        ],
+        "specific": {}
+      },
+      "doc-c9bab190$77c4014bef47deb4fef3af579f2959457c058ce8": {
+        "id": "doc-c9bab190$77c4014bef47deb4fef3af579f2959457c058ce8",
+        "containedBy": "awsAMachine-92d81d7c",
         "containerDefinitionId": "doc$77c4014bef47deb4fef3af579f2959457c058ce8",
         "type": "docker",
         "contains": [],
@@ -326,9 +342,9 @@
           "commit": "77c4014bef47deb4fef3af579f2959457c058ce8"
         }
       },
-      "hist-1dce7320$39f0c71b89f3ba78064468c0af79017927f1a6cb": {
-        "id": "hist-1dce7320$39f0c71b89f3ba78064468c0af79017927f1a6cb",
-        "containedBy": "awsAutoscaling-da1fe44a",
+      "hist-50b3e02a$39f0c71b89f3ba78064468c0af79017927f1a6cb": {
+        "id": "hist-50b3e02a$39f0c71b89f3ba78064468c0af79017927f1a6cb",
+        "containedBy": "awsAMachine-92d81d7c",
         "containerDefinitionId": "hist$39f0c71b89f3ba78064468c0af79017927f1a6cb",
         "type": "docker",
         "contains": [],
@@ -342,9 +358,9 @@
           "commit": "39f0c71b89f3ba78064468c0af79017927f1a6cb"
         }
       },
-      "real-6ac943b6$5309ad7aeba319fd44adb18bbc983f4587f16af9": {
-        "id": "real-6ac943b6$5309ad7aeba319fd44adb18bbc983f4587f16af9",
-        "containedBy": "awsAutoscaling-da1fe44a",
+      "real-27b4d0bc$5309ad7aeba319fd44adb18bbc983f4587f16af9": {
+        "id": "real-27b4d0bc$5309ad7aeba319fd44adb18bbc983f4587f16af9",
+        "containedBy": "awsAMachine-92d81d7c",
         "containerDefinitionId": "real$5309ad7aeba319fd44adb18bbc983f4587f16af9",
         "type": "docker",
         "contains": [],
@@ -358,9 +374,9 @@
           "commit": "5309ad7aeba319fd44adb18bbc983f4587f16af9"
         }
       },
-      "web-f3c0120c$e2021682ad1d25287321a4883535252ba684d9ba": {
-        "id": "web-f3c0120c$e2021682ad1d25287321a4883535252ba684d9ba",
-        "containedBy": "awsAutoscaling-da1fe44a",
+      "web-bebd8106$e2021682ad1d25287321a4883535252ba684d9ba": {
+        "id": "web-bebd8106$e2021682ad1d25287321a4883535252ba684d9ba",
+        "containedBy": "awsAMachine-92d81d7c",
         "containerDefinitionId": "web$e2021682ad1d25287321a4883535252ba684d9ba",
         "type": "docker",
         "contains": [],
