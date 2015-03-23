@@ -5,7 +5,7 @@ module.exports = {
   secretAccessKey: 'YOUR_SECRET_HERE',
   user: 'ubuntu',
   defaultSubnetId: 'subnet-xxxxxxxx',
+  defaultVpcId: 'vpc-xxxxxxxx',
   defaultImageId: 'ami-xxxxxxxx',
-  defaultInstanceType: 't2.medium',
-  defaultVpcId: 'vpc-xxxxxxxx'
+  defaultInstanceType: 't2.medium'
 };
