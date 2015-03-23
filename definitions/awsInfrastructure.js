@@ -32,9 +32,6 @@ exports.awsWebSg = {
 
 exports.awsMachine = {
   type: 'aws-ami',
-  name: 'demo2',
-  specific: {
-    ImageId: 'ami-4b90b27b'
-  }
+  name: 'demo2'
 };
 
