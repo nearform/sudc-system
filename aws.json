@@ -6,7 +6,6 @@
     {
       "type": "aws-elb",
       "specific": {
-        "LoadBalancerName": "webElb",
         "Listeners": [
           {
             "Protocol": "HTTP",
@@ -188,7 +187,6 @@
           "awsWebSg-b5e731b6"
         ],
         "specific": {
-          "LoadBalancerName": "webElb",
           "Listeners": [
             {
               "Protocol": "HTTP",

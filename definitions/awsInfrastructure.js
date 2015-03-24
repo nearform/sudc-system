@@ -6,7 +6,6 @@ exports.awsRoot = {
 exports.awsWebElb = {
   type: 'aws-elb',
   specific: {
-    LoadBalancerName: 'webElb',
     Listeners: [{Protocol: 'HTTP', LoadBalancerPort: 80, InstanceProtocol: 'HTTP', InstancePort: 8000}]
   }
 };
