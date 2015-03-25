@@ -184,13 +184,32 @@
   ],
   "topology": {
     "containers": {
-      "awsWebSg-52c21f4e": {
-        "id": "awsWebSg-52c21f4e",
-        "containedBy": "awsWebSg-52c21f4e",
+      "awsWebElb-1bd74778": {
+        "id": "awsWebElb-1bd74778",
+        "containedBy": "awsWebElb-1bd74778",
+        "containerDefinitionId": "awsWebElb",
+        "type": "aws-elb",
+        "contains": [
+          "awsWebSg-b5e731b6"
+        ],
+        "specific": {
+          "Listeners": [
+            {
+              "Protocol": "HTTP",
+              "LoadBalancerPort": 80,
+              "InstanceProtocol": "HTTP",
+              "InstancePort": 8000
+            }
+          ]
+        }
+      },
+      "awsWebSg-b5e731b6": {
+        "id": "awsWebSg-b5e731b6",
+        "containedBy": "awsWebElb-1bd74778",
         "containerDefinitionId": "awsWebSg",
         "type": "aws-sg",
         "contains": [
-          "awsWebElb-2289480d"
+          "awsAutoscaling-c1b70920"
         ],
         "specific": {
           "GroupName": "webSg",
@@ -280,53 +299,34 @@
           ]
         }
       },
-      "awsWebElb-2289480d": {
-        "id": "awsWebElb-2289480d",
-        "containedBy": "awsWebSg-52c21f4e",
-        "containerDefinitionId": "awsWebElb",
-        "type": "aws-elb",
-        "contains": [
-          "awsAutoscaling-da1fe44a"
-        ],
-        "specific": {
-          "Listeners": [
-            {
-              "Protocol": "HTTP",
-              "LoadBalancerPort": 80,
-              "InstanceProtocol": "HTTP",
-              "InstancePort": 8000
-            }
-          ]
-        }
-      },
-      "awsAutoscaling-da1fe44a": {
-        "id": "awsAutoscaling-da1fe44a",
-        "containedBy": "awsWebElb-2289480d",
+      "awsAutoscaling-c1b70920": {
+        "id": "awsAutoscaling-c1b70920",
+        "containedBy": "awsWebSg-b5e731b6",
         "containerDefinitionId": "awsAutoscaling",
         "type": "aws-autoscaling",
         "contains": [
-          "awsAMachine-92d81d7c"
+          "awsAMachine-2806e13c"
         ],
         "specific": {
           "ImageId": "ami-4b90b27b"
         }
       },
-      "awsAMachine-92d81d7c": {
-        "id": "awsAMachine-92d81d7c",
-        "containedBy": "awsAutoscaling-da1fe44a",
+      "awsAMachine-2806e13c": {
+        "id": "awsAMachine-2806e13c",
+        "containedBy": "awsAutoscaling-c1b70920",
         "containerDefinitionId": "awsAMachine",
         "type": "blank-container",
         "contains": [
-          "doc-c9bab190$77c4014bef47deb4fef3af579f2959457c058ce8",
-          "hist-50b3e02a$39f0c71b89f3ba78064468c0af79017927f1a6cb",
-          "real-27b4d0bc$5309ad7aeba319fd44adb18bbc983f4587f16af9",
-          "web-bebd8106$e2021682ad1d25287321a4883535252ba684d9ba"
+          "doc-8dc8fa7c$77c4014bef47deb4fef3af579f2959457c058ce8",
+          "hist-14c1abc6$39f0c71b89f3ba78064468c0af79017927f1a6cb",
+          "real-63c69b50$5309ad7aeba319fd44adb18bbc983f4587f16af9",
+          "web-facfcaea$e2021682ad1d25287321a4883535252ba684d9ba"
         ],
         "specific": {}
       },
-      "doc-c9bab190$77c4014bef47deb4fef3af579f2959457c058ce8": {
-        "id": "doc-c9bab190$77c4014bef47deb4fef3af579f2959457c058ce8",
-        "containedBy": "awsAMachine-92d81d7c",
+      "doc-8dc8fa7c$77c4014bef47deb4fef3af579f2959457c058ce8": {
+        "id": "doc-8dc8fa7c$77c4014bef47deb4fef3af579f2959457c058ce8",
+        "containedBy": "awsAMachine-2806e13c",
         "containerDefinitionId": "doc$77c4014bef47deb4fef3af579f2959457c058ce8",
         "type": "docker",
         "contains": [],
@@ -340,9 +340,9 @@
           "commit": "77c4014bef47deb4fef3af579f2959457c058ce8"
         }
       },
-      "hist-50b3e02a$39f0c71b89f3ba78064468c0af79017927f1a6cb": {
-        "id": "hist-50b3e02a$39f0c71b89f3ba78064468c0af79017927f1a6cb",
-        "containedBy": "awsAMachine-92d81d7c",
+      "hist-14c1abc6$39f0c71b89f3ba78064468c0af79017927f1a6cb": {
+        "id": "hist-14c1abc6$39f0c71b89f3ba78064468c0af79017927f1a6cb",
+        "containedBy": "awsAMachine-2806e13c",
         "containerDefinitionId": "hist$39f0c71b89f3ba78064468c0af79017927f1a6cb",
         "type": "docker",
         "contains": [],
@@ -356,9 +356,9 @@
           "commit": "39f0c71b89f3ba78064468c0af79017927f1a6cb"
         }
       },
-      "real-27b4d0bc$5309ad7aeba319fd44adb18bbc983f4587f16af9": {
-        "id": "real-27b4d0bc$5309ad7aeba319fd44adb18bbc983f4587f16af9",
-        "containedBy": "awsAMachine-92d81d7c",
+      "real-63c69b50$5309ad7aeba319fd44adb18bbc983f4587f16af9": {
+        "id": "real-63c69b50$5309ad7aeba319fd44adb18bbc983f4587f16af9",
+        "containedBy": "awsAMachine-2806e13c",
         "containerDefinitionId": "real$5309ad7aeba319fd44adb18bbc983f4587f16af9",
         "type": "docker",
         "contains": [],
@@ -372,9 +372,9 @@
           "commit": "5309ad7aeba319fd44adb18bbc983f4587f16af9"
         }
       },
-      "web-bebd8106$e2021682ad1d25287321a4883535252ba684d9ba": {
-        "id": "web-bebd8106$e2021682ad1d25287321a4883535252ba684d9ba",
-        "containedBy": "awsAMachine-92d81d7c",
+      "web-facfcaea$e2021682ad1d25287321a4883535252ba684d9ba": {
+        "id": "web-facfcaea$e2021682ad1d25287321a4883535252ba684d9ba",
+        "containedBy": "awsAMachine-2806e13c",
         "containerDefinitionId": "web$e2021682ad1d25287321a4883535252ba684d9ba",
         "type": "docker",
         "contains": [],
