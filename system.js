@@ -3,18 +3,20 @@ exports.namespace = 'sudc';
 exports.id = '62999e58-66a0-4e50-a870-f2673acf6c79';
 
 exports.topology = {
-  local: {
-    root: ['doc', 'hist', 'real', 'web']
-  },
   direct: {
     machine$123: {
       contains: ['doc', 'hist', 'real', 'web'],
       specific: {
-        user: 'root',
-        identityFile: 'sudc-key',
-        ipAddress: '178.62.80.16'
+        ipAddress: '178.62.92.122',
+        user: 'root'
       }
     }
+  },
+  development: {
+    root: ['doc', 'hist', 'real', 'web']
+  },
+  process: {
+    root: ['doc', 'hist', 'real', 'web']
   }
 };
 

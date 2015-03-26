@@ -1,6 +1,0 @@
-exports.types = {
-};
-
-exports.ids = {
-};
-
