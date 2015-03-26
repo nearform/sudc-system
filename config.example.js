@@ -1,3 +1,3 @@
 module.exports = {
-    identityFile: '/home/root/.ssh/direct',
+    identityFile: '/home/root/.ssh/direct'
 };
