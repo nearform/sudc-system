@@ -7,9 +7,7 @@ exports.awsWebElb = {
   type: 'aws-elb',
   specific: {
     LoadBalancerName: 'webElb',
-    Listeners: [{Protocol: 'HTTP', LoadBalancerPort: 80, InstanceProtocol: 'HTTP', InstancePort: 8000}],
-    AvailabilityZones: ['us-west-2a'],
-    Subnets: ['subnet-xxxxxxxx']
+    Listeners: [{Protocol: 'HTTP', LoadBalancerPort: 80, InstanceProtocol: 'HTTP', InstancePort: 8000}]
   }
 };
 
@@ -28,17 +26,12 @@ exports.awsWebSg = {
       { 'IpProtocol': 'tcp', 'FromPort': 8000, 'ToPort': 8000, 'IpRanges': [ { 'CidrIp': '0.0.0.0/0' } ] }
     ],
     IpPermissionsEgress: [
-      { IpProtocol: '-1', UserIdGroupPairs: [], IpRanges: [ { 'CidrIp': '0.0.0.0/0' } ] } ],
-    VpcId: 'vpc-xxxxxxxx',
-    Tags: []
+      { IpProtocol: '-1', UserIdGroupPairs: [], IpRanges: [ { 'CidrIp': '0.0.0.0/0' } ] } ]
   }
 };
 
 exports.awsMachine = {
   type: 'aws-ami',
-  name: 'demo2',
-  specific: {
-    ImageId: 'ami-xxxxxxxx'
-  }
+  name: 'demo2'
 };
 

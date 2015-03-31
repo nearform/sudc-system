@@ -25,3 +25,6 @@ options.mine.js
 workspace
 build
 builds
+key.pem
+
+config.js
