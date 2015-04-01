@@ -7,9 +7,8 @@ exports.topology = {
     machine$123: {
       contains: ['doc', 'hist', 'real', 'web'],
       specific: {
-        ipAddress: '178.62.92.122',
-        user: 'root'
-      }
+        ipAddress: '178.62.92.122'
+      };
     }
   },
   development: {
@@ -17,6 +16,5 @@ exports.topology = {
   },
   process: {
     root: ['doc', 'hist', 'real', 'web']
-  }
-};
-
+  };
+}
