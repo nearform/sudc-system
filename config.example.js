@@ -6,4 +6,6 @@ module.exports = {
   user: "ubuntu",
   defaultSubnetId: "subnet-xxxxxxxx",
   defaultVpcId: "vpc-xxxxxxxx"
+  defaultImageId: "ami-xxxxxxxx",
+  defaultInstanceType: "t2.small"
 };
