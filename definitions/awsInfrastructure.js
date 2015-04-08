@@ -40,11 +40,12 @@ exports.awsMachine = {
 exports.awsAutoscaling = {
   type: 'aws-autoscaling',
   specific: {
-    ImageId: 'ami-4b90b27b'
+    ImageId: 'ami-4b90b27b',
+    MinSize: 2,
+    MaxSize: 5
   }
 };
 
 exports.awsAMachine = {
-  type: 'blank-container',
-  multiply: true
+  type: 'blank-container'
 };

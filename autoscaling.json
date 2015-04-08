@@ -113,14 +113,15 @@
     {
       "type": "aws-autoscaling",
       "specific": {
-        "ImageId": "ami-4b90b27b"
+        "ImageId": "ami-4b90b27b",
+        "MinSize": 2,
+        "MaxSize": 5
       },
       "id": "awsAutoscaling",
       "name": "awsAutoscaling"
     },
     {
       "type": "blank-container",
-      "multiply": true,
       "id": "awsAMachine",
       "name": "awsAMachine"
     },
@@ -308,7 +309,9 @@
           "awsAMachine-2806e13c"
         ],
         "specific": {
-          "ImageId": "ami-4b90b27b"
+          "ImageId": "ami-4b90b27b",
+          "MinSize": 2,
+          "MaxSize": 5
         }
       },
       "awsAMachine-2806e13c": {
