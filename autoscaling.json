@@ -210,7 +210,8 @@
         "containerDefinitionId": "awsWebSg",
         "type": "aws-sg",
         "contains": [
-          "awsAutoscaling-c1b70920"
+          "awsAutoscaling$a-66dcff26",
+          "awsAutoscaling$b-ffd5ae9c"
         ],
         "specific": {
           "GroupName": "webSg",
@@ -300,13 +301,13 @@
           ]
         }
       },
-      "awsAutoscaling-c1b70920": {
-        "id": "awsAutoscaling-c1b70920",
+      "awsAutoscaling$a-66dcff26": {
+        "id": "awsAutoscaling$a-66dcff26",
         "containedBy": "awsWebSg-b5e731b6",
         "containerDefinitionId": "awsAutoscaling",
         "type": "aws-autoscaling",
         "contains": [
-          "awsAMachine-2806e13c"
+          "awsAMachine-f8ff951"
         ],
         "specific": {
           "ImageId": "ami-4b90b27b",
@@ -314,22 +315,49 @@
           "MaxSize": 5
         }
       },
-      "awsAMachine-2806e13c": {
-        "id": "awsAMachine-2806e13c",
-        "containedBy": "awsAutoscaling-c1b70920",
+      "awsAMachine-f8ff951": {
+        "id": "awsAMachine-f8ff951",
+        "containedBy": "awsAutoscaling$a-66dcff26",
         "containerDefinitionId": "awsAMachine",
         "type": "blank-container",
         "contains": [
-          "doc-8dc8fa7c$77c4014bef47deb4fef3af579f2959457c058ce8",
-          "hist-14c1abc6$39f0c71b89f3ba78064468c0af79017927f1a6cb",
-          "real-63c69b50$5309ad7aeba319fd44adb18bbc983f4587f16af9",
-          "web-facfcaea$e2021682ad1d25287321a4883535252ba684d9ba"
+          "doc-4ef75049$77c4014bef47deb4fef3af579f2959457c058ce8",
+          "hist-d7fe01f3$39f0c71b89f3ba78064468c0af79017927f1a6cb",
+          "real-a0f93165$5309ad7aeba319fd44adb18bbc983f4587f16af9",
+          "web-39f060df$e2021682ad1d25287321a4883535252ba684d9ba"
         ],
         "specific": {}
       },
-      "doc-8dc8fa7c$77c4014bef47deb4fef3af579f2959457c058ce8": {
-        "id": "doc-8dc8fa7c$77c4014bef47deb4fef3af579f2959457c058ce8",
-        "containedBy": "awsAMachine-2806e13c",
+      "awsAutoscaling$b-ffd5ae9c": {
+        "id": "awsAutoscaling$b-ffd5ae9c",
+        "containedBy": "awsWebSg-b5e731b6",
+        "containerDefinitionId": "awsAutoscaling",
+        "type": "aws-autoscaling",
+        "contains": [
+          "awsAMachine-b245959f"
+        ],
+        "specific": {
+          "ImageId": "ami-4b90b27b",
+          "MinSize": 2,
+          "MaxSize": 5
+        }
+      },
+      "awsAMachine-b245959f": {
+        "id": "awsAMachine-b245959f",
+        "containedBy": "awsAutoscaling$b-ffd5ae9c",
+        "containerDefinitionId": "awsAMachine",
+        "type": "blank-container",
+        "contains": [
+          "doc-5f8a3a30$77c4014bef47deb4fef3af579f2959457c058ce8",
+          "hist-c6836b8a$39f0c71b89f3ba78064468c0af79017927f1a6cb",
+          "real-b1845b1c$5309ad7aeba319fd44adb18bbc983f4587f16af9",
+          "web-288d0aa6$e2021682ad1d25287321a4883535252ba684d9ba"
+        ],
+        "specific": {}
+      },
+      "doc-4ef75049$77c4014bef47deb4fef3af579f2959457c058ce8": {
+        "id": "doc-4ef75049$77c4014bef47deb4fef3af579f2959457c058ce8",
+        "containedBy": "awsAMachine-f8ff951",
         "containerDefinitionId": "doc$77c4014bef47deb4fef3af579f2959457c058ce8",
         "type": "docker",
         "contains": [],
@@ -343,9 +371,25 @@
           "commit": "77c4014bef47deb4fef3af579f2959457c058ce8"
         }
       },
-      "hist-14c1abc6$39f0c71b89f3ba78064468c0af79017927f1a6cb": {
-        "id": "hist-14c1abc6$39f0c71b89f3ba78064468c0af79017927f1a6cb",
-        "containedBy": "awsAMachine-2806e13c",
+      "doc-5f8a3a30$77c4014bef47deb4fef3af579f2959457c058ce8": {
+        "id": "doc-5f8a3a30$77c4014bef47deb4fef3af579f2959457c058ce8",
+        "containedBy": "awsAMachine-b245959f",
+        "containerDefinitionId": "doc$77c4014bef47deb4fef3af579f2959457c058ce8",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "https://github.com/nearform/sudc-doc.git",
+          "processBuild": "npm install",
+          "execute": {
+            "args": "-p 9002:9002 -d",
+            "process": "srv/doc-srv.js"
+          },
+          "commit": "77c4014bef47deb4fef3af579f2959457c058ce8"
+        }
+      },
+      "hist-d7fe01f3$39f0c71b89f3ba78064468c0af79017927f1a6cb": {
+        "id": "hist-d7fe01f3$39f0c71b89f3ba78064468c0af79017927f1a6cb",
+        "containedBy": "awsAMachine-f8ff951",
         "containerDefinitionId": "hist$39f0c71b89f3ba78064468c0af79017927f1a6cb",
         "type": "docker",
         "contains": [],
@@ -359,9 +403,25 @@
           "commit": "39f0c71b89f3ba78064468c0af79017927f1a6cb"
         }
       },
-      "real-63c69b50$5309ad7aeba319fd44adb18bbc983f4587f16af9": {
-        "id": "real-63c69b50$5309ad7aeba319fd44adb18bbc983f4587f16af9",
-        "containedBy": "awsAMachine-2806e13c",
+      "hist-c6836b8a$39f0c71b89f3ba78064468c0af79017927f1a6cb": {
+        "id": "hist-c6836b8a$39f0c71b89f3ba78064468c0af79017927f1a6cb",
+        "containedBy": "awsAMachine-b245959f",
+        "containerDefinitionId": "hist$39f0c71b89f3ba78064468c0af79017927f1a6cb",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "https://github.com/nearform/sudc-history.git",
+          "processBuild": "npm install",
+          "execute": {
+            "args": "-p 9003:9003 -d",
+            "process": "srv/hist-srv.js"
+          },
+          "commit": "39f0c71b89f3ba78064468c0af79017927f1a6cb"
+        }
+      },
+      "real-a0f93165$5309ad7aeba319fd44adb18bbc983f4587f16af9": {
+        "id": "real-a0f93165$5309ad7aeba319fd44adb18bbc983f4587f16af9",
+        "containedBy": "awsAMachine-f8ff951",
         "containerDefinitionId": "real$5309ad7aeba319fd44adb18bbc983f4587f16af9",
         "type": "docker",
         "contains": [],
@@ -375,9 +435,42 @@
           "commit": "5309ad7aeba319fd44adb18bbc983f4587f16af9"
         }
       },
-      "web-facfcaea$e2021682ad1d25287321a4883535252ba684d9ba": {
-        "id": "web-facfcaea$e2021682ad1d25287321a4883535252ba684d9ba",
-        "containedBy": "awsAMachine-2806e13c",
+      "real-b1845b1c$5309ad7aeba319fd44adb18bbc983f4587f16af9": {
+        "id": "real-b1845b1c$5309ad7aeba319fd44adb18bbc983f4587f16af9",
+        "containedBy": "awsAMachine-b245959f",
+        "containerDefinitionId": "real$5309ad7aeba319fd44adb18bbc983f4587f16af9",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "https://github.com/nearform/sudc-realtime.git",
+          "processBuild": "npm install",
+          "execute": {
+            "args": "-p 9001:9001 -d",
+            "process": "srv/real-srv.js"
+          },
+          "commit": "5309ad7aeba319fd44adb18bbc983f4587f16af9"
+        }
+      },
+      "web-39f060df$e2021682ad1d25287321a4883535252ba684d9ba": {
+        "id": "web-39f060df$e2021682ad1d25287321a4883535252ba684d9ba",
+        "containedBy": "awsAMachine-f8ff951",
+        "containerDefinitionId": "web$e2021682ad1d25287321a4883535252ba684d9ba",
+        "type": "docker",
+        "contains": [],
+        "specific": {
+          "repositoryUrl": "https://github.com/nearform/sudc-web.git",
+          "processBuild": "npm install; cd web; npm install bower; node_modules/.bin/bower install",
+          "execute": {
+            "args": "-p 8000:8000 -d",
+            "process": "./index.js",
+            "cwd": "web"
+          },
+          "commit": "e2021682ad1d25287321a4883535252ba684d9ba"
+        }
+      },
+      "web-288d0aa6$e2021682ad1d25287321a4883535252ba684d9ba": {
+        "id": "web-288d0aa6$e2021682ad1d25287321a4883535252ba684d9ba",
+        "containedBy": "awsAMachine-b245959f",
         "containerDefinitionId": "web$e2021682ad1d25287321a4883535252ba684d9ba",
         "type": "docker",
         "contains": [],

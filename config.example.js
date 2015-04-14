@@ -7,5 +7,6 @@ module.exports = {
   defaultSubnetId: "subnet-xxxxxxxx",
   defaultVpcId: "vpc-xxxxxxxx"
   defaultImageId: "ami-xxxxxxxx",
-  defaultInstanceType: "t2.small"
+  defaultInstanceType: "t2.small",
+  defaultKeyName: "YOUR_AWS_KEY_ID_HERE"
 };
