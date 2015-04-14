@@ -13,16 +13,13 @@ exports.topology = {
     }]
   },
   autoscaling: {
-    awsWebElb: [{
-      awsWebSg: [{
-        awsAutoscaling$a: {
-          awsAMachine: ['web', 'doc', 'hist', 'real']
-        },
-        awsAutoscaling$b: {
-          awsAMachine: ['web', 'doc', 'hist', 'real']
-        }
-      }]
+//    awsWebElb: [{
+    awsWebSg: [{
+      awsAutoscaling: {
+        awsAMachine: ['web', 'doc', 'hist', 'real']
+      }
     }]
+//    }]
   },
   development: {
     root: ['doc', 'hist', 'real', 'web']
