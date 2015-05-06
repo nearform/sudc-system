@@ -162,7 +162,7 @@
       "type": "docker",
       "specific": {
         "repositoryUrl": "https://github.com/nearform/sudc-web.git",
-        "processBuild": "npm install; cd web; npm install bower; node_modules/.bin/bower install",
+        "processBuild": "npm install; cd web; npm install; npm install bower; node_modules/.bin/bower install",
         "execute": {
           "args": "-p 8000:8000 -d",
           "process": "./index.js",
@@ -371,7 +371,7 @@
         "contains": [],
         "specific": {
           "repositoryUrl": "https://github.com/nearform/sudc-web.git",
-          "processBuild": "npm install; cd web; npm install bower; node_modules/.bin/bower install",
+          "processBuild": "npm install; cd web; npm install; npm install bower; node_modules/.bin/bower install",
           "execute": {
             "args": "-p 8000:8000 -d",
             "process": "./index.js",
