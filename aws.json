@@ -113,9 +113,6 @@
     {
       "type": "aws-ami",
       "name": "demo2",
-      "specific": {
-        "ImageId": "ami-4b90b27b"
-      },
       "id": "awsMachine"
     },
     {
@@ -164,7 +161,7 @@
       "type": "docker",
       "specific": {
         "repositoryUrl": "https://github.com/nearform/sudc-web.git",
-        "processBuild": "npm install; cd web; npm install bower; node_modules/.bin/bower install",
+        "processBuild": "npm install; cd web; npm install; npm install bower; node_modules/.bin/bower install",
         "execute": {
           "args": "-p 8000:8000 -d",
           "process": "./index.js",
@@ -302,9 +299,7 @@
         "contains": [
           "web-3bb32de$e2021682ad1d25287321a4883535252ba684d9ba"
         ],
-        "specific": {
-          "ImageId": "ami-4b90b27b"
-        }
+        "specific": {}
       },
       "awsMachine-43fea2a6": {
         "id": "awsMachine-43fea2a6",
@@ -316,9 +311,7 @@
           "hist-e9b3e33e$39f0c71b89f3ba78064468c0af79017927f1a6cb",
           "real-70bab284$5309ad7aeba319fd44adb18bbc983f4587f16af9"
         ],
-        "specific": {
-          "ImageId": "ami-4b90b27b"
-        }
+        "specific": {}
       },
       "doc-9eb4d3a8$77c4014bef47deb4fef3af579f2959457c058ce8": {
         "id": "doc-9eb4d3a8$77c4014bef47deb4fef3af579f2959457c058ce8",
@@ -376,7 +369,7 @@
         "contains": [],
         "specific": {
           "repositoryUrl": "https://github.com/nearform/sudc-web.git",
-          "processBuild": "npm install; cd web; npm install bower; node_modules/.bin/bower install",
+          "processBuild": "npm install; cd web; npm install; npm install bower; node_modules/.bin/bower install",
           "execute": {
             "args": "-p 8000:8000 -d",
             "process": "./index.js",
