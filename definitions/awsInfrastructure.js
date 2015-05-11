@@ -6,7 +6,6 @@ exports.awsRoot = {
 exports.awsWebElb = {
   type: 'aws-elb',
   specific: {
-    LoadBalancerName: 'webElb',
     Listeners: [{Protocol: 'HTTP', LoadBalancerPort: 80, InstanceProtocol: 'HTTP', InstancePort: 8000}]
   }
 };
@@ -35,3 +34,15 @@ exports.awsMachine = {
   name: 'demo2'
 };
 
+exports.awsAutoscaling = {
+  type: 'aws-autoscaling',
+  specific: {
+    ImageId: 'ami-4b90b27b',
+    MinSize: 2,
+    MaxSize: 5
+  }
+};
+
+exports.awsAMachine = {
+  type: 'blank-container'
+};
